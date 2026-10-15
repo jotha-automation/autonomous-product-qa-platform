@@ -1,0 +1,44 @@
+flowchart LR
+  subgraph drive [Google Drive folder]
+    F1[pruebas-inc1353166.pdf]
+    F2[test-credentials.xlsx]
+    F3[other files]
+  end
+
+  subgraph sync [Sync & discovery]
+    Webhook[webhooks/google-drive]
+    SyncAPI[POST intake/sync-system]
+    Disc[discover_from_drive_entries<br/>classify_document]
+    Reg[intake_registry<br/>fingerprint diff]
+  end
+
+  subgraph parse [Parse & classify]
+    DL[download / local read]
+    Parser[DocumentParser<br/>PDF XLSX DOCX]
+    Meta[MetadataExtractor]
+    Soft[infer_soft_intake_role]
+    Catalog[build_intake_catalog<br/>enrich_documents_with_catalog]
+  end
+
+  subgraph pipeline [Orchestrator intake]
+    Idx[build_intake_index<br/>Redis intake_index]
+    Norm[normalize_intake_documents]
+    Split[expand_combined_intake_documents]
+    II[IntakeInterpretationAgent<br/>virtual portfolio types]
+    CII[ClientIntakeInterpreterAgent<br/>chunked obligations]
+    QOE[QaObligationExtractorAgent]
+    TAR[TestAssetResolverAgent<br/>RunSecretStore]
+  end
+
+  F1 --> Disc
+  F2 --> Disc
+  F3 --> Disc
+  Webhook --> Sync
+  SyncAPI --> Sync
+  Sync --> Disc --> Reg
+  Reg --> DL --> Parser --> Meta --> Soft --> Catalog
+  Catalog --> Idx --> Norm
+  Norm --> Split
+  Norm --> II
+  Norm --> CII
+  CII --> QOE --> TAR

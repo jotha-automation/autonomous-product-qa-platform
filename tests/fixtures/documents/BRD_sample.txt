@@ -1,0 +1,6 @@
+# Business Requirements Document (BRD)
+Version: 1.0
+Release: R1
+
+## Authentication
+Users must authenticate before accessing the platform.

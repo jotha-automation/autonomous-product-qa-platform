@@ -1,0 +1,58 @@
+flowchart LR
+  subgraph root [FastAPI src/main.py]
+    Health[GET /health]
+  end
+
+  subgraph v1 [/api/v1]
+    subgraph projects [/projects]
+      P1[POST / — create project]
+      P2[GET /project_id/traceability]
+    end
+
+    subgraph runs [/runs]
+      R1[POST / — start run sync]
+      R2[POST /async — background run]
+      R3[GET /run_id — status]
+      R4[GET /run_id/events]
+      R5[GET /run_id/stream SSE]
+      R6[GET /run_id/reports]
+      R7[GET /run_id/artifacts]
+      R8[GET /run_id/artifacts/manifest]
+      R9[GET /run_id/deliverable.xlsx]
+    end
+
+    subgraph drive [/drive]
+      D1[GET /projects — list Drive projects]
+      D2[GET /projects/id/tree]
+      D3[POST /projects — create folder]
+      D4[POST /projects/id/files — upload]
+      D5[POST /projects/id/process — sync + run]
+      D6[POST /projects/id/runtime-hints — target_url resume]
+      D7[POST /projects/id/close]
+      D8[GET /projects/id/qa-results]
+    end
+
+    subgraph intake [/intake]
+      I1[GET /system]
+      I2[GET /projects]
+      I3[POST /sync-system]
+      I4[GET /registry]
+      I5[GET /registry/root_id]
+      I6[GET /changes]
+      I7[POST /discover]
+    end
+
+    subgraph webhooks [/webhooks]
+      W1[POST /google-drive]
+    end
+
+    subgraph documents [/documents]
+      U1[POST /upload]
+    end
+  end
+
+  R1 --> Orch[ProductQAOrchestrator.run]
+  R2 --> Orch
+  D5 --> Orch
+  D6 --> Orch
+  W1 --> Sync[intake sync]

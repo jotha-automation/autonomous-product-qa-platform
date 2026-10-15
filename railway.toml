@@ -1,0 +1,27 @@
+# Railway deployment — configure in Dashboard → Variables
+# Full list: .env.example  |  Docs: docs/RAILWAY.md
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+
+# Required (Railway Dashboard, NOT in repo):
+#   APTP_API_KEY
+#   DATABASE_URL          — postgresql+asyncpg://... (from Postgres plugin)
+#   REDIS_URL             — from Redis plugin
+#   APTP_USE_MOCK_LLM=false
+#   AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT
+#   GOOGLE_DRIVE_CREDENTIALS_JSON
+#   GOOGLE_DRIVE_SYSTEM_ROOT_FOLDER_ID
+#   GOOGLE_DRIVE_WEBHOOK_SECRET
+#   APTP_CORS_ORIGINS
+#   APTP_INIT_DB=true     — first deploy only
+#   APTP_RUN_MIGRATIONS=true
+#   APTP_DRIVE_WATCH_ENABLED=true
+#   PORT                  — injected by Railway automatically

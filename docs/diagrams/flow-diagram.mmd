@@ -1,0 +1,27 @@
+flowchart TD
+    subgraph Intake["Ingesta e Interpretación"]
+        A[Google Drive / PDF QA spec] --> B[File catalog]
+        B --> C[ClientIntakeInterpreter con scope run]
+        C --> D[QA Obligation Extractor]
+    end
+
+    subgraph Design["Diseño y Cobertura"]
+        D --> E[Requirements + Coverage]
+        E --> F[Test Design incl negativos pagos transferencias]
+        F --> G[Traceability 1:1]
+    end
+
+    subgraph Automation["Automatización Playwright"]
+        G --> H[Playwright Architect codegen]
+        H --> I[Playwright Generator valida specs]
+        I --> J[Execution contra bank-qa-portal]
+        J --> K[RCA + Self-healing]
+    end
+
+    subgraph Reporting["Evidencia y Reportes"]
+        K --> L[Evidence Collector]
+        L --> M[Excel Deliverable]
+        L --> N[Visual Report / Markdown]
+        M --> O[APTP-front UI]
+        N --> O
+    end

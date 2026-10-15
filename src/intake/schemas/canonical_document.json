@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CanonicalDocument",
+  "type": "object",
+  "required": ["document_id", "project_id", "document_type", "title", "sections"],
+  "properties": {
+    "document_id": { "type": "string" },
+    "project_id": { "type": "string" },
+    "document_type": { "enum": ["BRD", "PRD", "UC", "AC", "OTHER"] },
+    "title": { "type": "string" },
+    "version": { "type": "string" },
+    "author": { "type": "string" },
+    "release": { "type": "string" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "content": { "type": "string" },
+          "level": { "type": "integer" }
+        }
+      }
+    },
+    "raw_text": { "type": "string" },
+    "metadata": { "type": "object" }
+  }
+}

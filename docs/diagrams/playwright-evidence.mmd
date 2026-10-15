@@ -1,0 +1,55 @@
+flowchart TB
+  subgraph plan [Test plan]
+    Arch[PlaywrightArchitectAgent]
+    Obl[obligations + asset_bindings]
+    Bank[bank_portal catalog<br/>data-testid routes]
+    Arch --> Plan[test_plan scenarios steps]
+    Obl --> Arch
+    Bank --> Arch
+  end
+
+  subgraph gen [Code generation]
+    Gen[PlaywrightGeneratorAgent]
+    Tpl[templates/playwright]
+    Plan --> Gen
+    Gen --> Proj[generated-test-projects/project_id/]
+    Tpl --> Proj
+    Proj --> Specs[tests/*.spec.ts]
+    Proj --> POM[pages/*.ts]
+    Proj --> Fix[fixtures/evidence.ts<br/>bank-portal-auth.ts]
+    Proj --> Env[.env BASE_URL APTP_SECRET_*]
+  end
+
+  subgraph run [Execution]
+    Exec[ExecutionAgent]
+    Specs --> Exec
+    Env --> Exec
+    Exec --> AUT[Target app]
+    Exec --> JSON[reports/results.json]
+    Exec --> TR[test-results traces]
+  end
+
+  subgraph step_evidence [Per-step evidence runtime]
+    Cap[captureStepEvidence<br/>after each step]
+    Specs --> Cap
+    Cap --> PNG[evidence/test-title/step-id.png]
+    Cap --> Ann[testInfo.annotations type evidence]
+  end
+
+  subgraph collect [Post-execution collection]
+    EC[evidence_collector.py]
+    PNG --> EC
+    Ann --> EC
+    JSON --> EC
+    TR --> EC
+    EC --> Art[aptp-artifacts/run_id/evidence/]
+    Art --> Man[evidence-manifest.json]
+    Art --> PDF[execution-report.pdf]
+    Art --> HTML[evidence/html Playwright report]
+  end
+
+  subgraph heal [On failure]
+    RCA[FailureRCAAgent]
+    Heal[SelfHealingAgent patches pages/]
+    JSON --> RCA --> Heal --> Exec
+  end

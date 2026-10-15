@@ -1,0 +1,73 @@
+# APTP — local full stack (Postgres + Redis + API)
+# Requires a filled .env (see .env.example). Validate: make env
+#
+# Frontend (not dockerized): cd ../APTP-front && npm run dev
+
+name: aptp
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: aptp
+      POSTGRES_PASSWORD: aptp
+      POSTGRES_DB: aptp
+    ports:
+      - "${APTP_POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./deployment/init/01-pgvector.sql:/docker-entrypoint-initdb.d/01-pgvector.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aptp -d aptp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "${APTP_REDIS_PORT:-6379}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PLAYWRIGHT_VERSION: "1.61.1"
+    ports:
+      - "${APTP_API_PORT:-8000}:8000"
+    env_file:
+      - path: .env
+        required: true
+    environment:
+      # Docker network overrides only — all app config comes from .env
+      PORT: "8000"
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+asyncpg://aptp:aptp@postgres:5432/aptp
+      APTP_WAIT_FOR_DB: "true"
+      APTP_UVICORN_RELOAD: "false"
+      APTP_WEB_WORKERS: "1"
+      APTP_ALLOW_MOCKS: "false"
+      APTP_USE_MOCK_LLM: "false"
+      APTP_SKIP_PLAYWRIGHT_INSTALL: "true"
+      APTP_MOCK_PLAYWRIGHT_EXECUTION: "false"
+      PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+      # Must match src/playwright_version.py and Dockerfile ARG PLAYWRIGHT_VERSION
+      APTP_PLAYWRIGHT_VERSION: "1.61.1"
+      APTP_EMBEDDING_DIMENSIONS: "1536"
+    volumes:
+      - ./generated-test-projects:/app/generated-test-projects
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

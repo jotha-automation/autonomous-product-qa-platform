@@ -1,0 +1,61 @@
+flowchart TB
+  subgraph scope [Per-run scope run:run_id]
+    Orch[Orchestrator set_memory_scope]
+    Bus[RunMemoryBus bus_for_run]
+  end
+
+  subgraph publish [Published artifact keys]
+    D1[documents]
+    D2[interpreted_intake]
+    D3[requirements]
+    D4[functional_scenarios]
+    D5[coverage]
+    D6[traceability_matrix]
+    D7[risk]
+    D8[test_plan]
+    D9[generated_code]
+    D10[execution_results]
+    D11[rca healing defects]
+    D12[knowledge_matches]
+  end
+
+  subgraph redis [Redis EnhancedSharedMemory]
+    W[WORKING<br/>run:id:documents interpreted_intake]
+    S[SHORT_TERM 24h<br/>pipeline_status run_events]
+    L[LONG_TERM 7d<br/>pipeline_summary checkpoint]
+    E[EPHEMERAL 1h]
+  end
+
+  subgraph exec_ns [Execution namespace]
+    E1[execution:run_id:test_plan]
+    E2[execution:run_id:generated_code]
+    E3[execution:run_id:execution_results]
+  end
+
+  subgraph bundle [build_automation_bundle consumers]
+    A1[PlaywrightArchitectAgent]
+    A2[FailureRCAAgent]
+    A3[SelfHealingAgent]
+    A4[DefectDetectionAgent]
+  end
+
+  subgraph pgvector [Postgres knowledge]
+    Idx[index_requirements]
+    Ret[retrieve_knowledge]
+    PipeIdx[index_pipeline_results]
+  end
+
+  Orch --> Bus
+  Bus --> publish
+  publish --> W
+  publish --> S
+  publish --> L
+  Bus --> exec_ns
+  Req[RequirementsAnalyst] --> Idx
+  Know[KnowledgeRetrieval] --> Ret
+  Orch --> PipeIdx
+  A1 --> bundle
+  A2 --> bundle
+  A3 --> bundle
+  A4 --> bundle
+  bundle --> Bus

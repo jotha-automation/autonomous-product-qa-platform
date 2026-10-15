@@ -1,0 +1,99 @@
+{
+  "sheet_names": ["Datos Generales", "Casos de Pruebas", "Aprobaciones"],
+  "sheets": ["Datos Generales", "Casos de Pruebas", "Aprobaciones"],
+  "merge_counts": {
+    "Datos Generales": 55,
+    "Casos de Pruebas": 41,
+    "Aprobaciones": 4
+  },
+  "structural_anchors": [
+    {"sheet": "Datos Generales", "cell": "I2", "text": "FORMATO SET DE PRUEBAS"},
+    {"sheet": "Datos Generales", "cell": "C8", "text": "Datos Generales"},
+    {"sheet": "Casos de Pruebas", "cell": "C4", "text": "Datos Generales"},
+    {"sheet": "Aprobaciones", "cell": "C7", "text": "APROBACIONES"}
+  ],
+  "anchors": [
+    {"sheet": "Datos Generales", "cell": "I2", "expected_contains": "FORMATO SET DE PRUEBAS"},
+    {"sheet": "Datos Generales", "cell": "C8", "expected_contains": "Datos Generales"},
+    {"sheet": "Casos de Pruebas", "cell": "C4", "expected_contains": "Datos Generales"},
+    {"sheet": "Aprobaciones", "cell": "C7", "expected_contains": "APROBACIONES"}
+  ],
+  "test_rows_start": 11,
+  "test_rows_end": 500,
+  "test_row_columns": ["B", "C", "D", "E", "F", "G", "H"],
+  "test_row_field_columns": {
+    "title": "C",
+    "steps": "D",
+    "expected": "E",
+    "result": "F"
+  },
+  "suite_header_cells": {
+    "suite_title": "Casos de Pruebas!B9",
+    "suite_section": "Casos de Pruebas!C10"
+  },
+  "boilerplate_cells_to_clear": [
+    "Datos Generales!I16",
+    "Datos Generales!I17",
+    "Datos Generales!I18",
+    "Datos Generales!I19",
+    "Datos Generales!I20",
+    "Datos Generales!C32",
+    "Datos Generales!G32",
+    "Datos Generales!C33",
+    "Datos Generales!G33",
+    "Datos Generales!C34",
+    "Datos Generales!G34",
+    "Datos Generales!C39",
+    "Datos Generales!G39",
+    "Datos Generales!C40",
+    "Datos Generales!G40",
+    "Datos Generales!C41",
+    "Datos Generales!G41",
+    "Datos Generales!C42",
+    "Datos Generales!G42",
+    "Datos Generales!C48",
+    "Datos Generales!G48",
+    "Datos Generales!C49",
+    "Datos Generales!G49",
+    "Datos Generales!C50",
+    "Datos Generales!G50",
+    "Datos Generales!C51",
+    "Datos Generales!G51",
+    "Datos Generales!C52",
+    "Datos Generales!G52",
+    "Datos Generales!M49",
+    "Casos de Pruebas!B9",
+    "Casos de Pruebas!C10",
+    "Casos de Pruebas!C11",
+    "Casos de Pruebas!C12",
+    "Casos de Pruebas!C13",
+    "Casos de Pruebas!C17"
+  ],
+  "template_fingerprints": [
+    "INC1346999",
+    "PRB0043072",
+    "Walter Angulo",
+    "Leonardo A Rivas",
+    "William Del Rio",
+    "docs.google.com/presentation",
+    "CP_0001_CONSULTA SALDOS",
+    "CP_0002_INSCRIPCION DE CUENTA",
+    "CP_0003_CASO PRUEBA XXXXXX",
+    "CASO PRUEBA X",
+    "CASO PRUEBA Y",
+    "TITULO SUITE PRUEBAS",
+    "XX/XX/XXXX"
+  ],
+  "test_row_write_mode": "cp_code",
+  "template_header_rows_end": 10,
+  "general_data_cells": {
+    "tec": "Datos Generales!I12",
+    "inc": "Datos Generales!I15",
+    "objetivo": "Datos Generales!M13",
+    "alcance": "Datos Generales!M29",
+    "documentation_link": "Datos Generales!M49",
+    "app_platform": "Datos Generales!E14",
+    "start_date": "Datos Generales!G23",
+    "cert_date": "Datos Generales!G24"
+  }
+}

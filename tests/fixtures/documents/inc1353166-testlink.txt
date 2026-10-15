@@ -1,0 +1,6650 @@
+1.Suite de Pruebas : REQ INC1353166 - EN DIAGNÓSTICO/PENDIENTE DE
+RESPUESTA/FRONT/INSCRIPCIONES
+
+1.1.Suite de Pruebas : Error de Comunicación inscripción no realizada
+1.1.1.Suite de Pruebas : Días Hábiles
+
+Caso de Prueba EMPRESARIAL-13327: Parámetro = 1 día Hábil [Versión : 1]
+Autor:
+
+Digital Bank
+
+Resumen:
+Validar que cuando se realice una Inscripción ACH y el registro se encuentre en estado “Enviado a otro
+banco”, y cumpla 1 dia habil sin respuesta, esta inscripción será modificada a estado “Rechazado” y el motivo
+del rechazo será: “Error de Comunicación inscripción no realizada”
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+1
+
+Ingrese Datos del Encabezado
+Se ingresa al Modulo de
+Inscripciones y se da clic en el item
+Crear Inscripción
+• Nombre Proceso Inscripción
+• Cantidad de Inscripciones
+• Servicio Destino
+Boton "Continuar"
+Se visualiza en Pantalla:
+
+Ingresar y Seleccionar los datos
+obligatorios.
+2
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+Ingresar Procesos de Inscripciones
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar
+Inscripciones" y "Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+3
+
+Dar clic en el boton Digitar
+Inscripciones
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio Destino
+Nº Producto o Servicio Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y "Regresar"
+Ingresar los datos obligatorios y se da
+clic en el boton "Continuar"
+
+4
+
+NOTA: En el campo Tipo Producto o Se visualiza el siguiente mensaje en pantalla
+Servicio Destino seleccionar:
+"Para continuar con la inscripción de clic en
+validar"
+
+•
+•
+
+5
+
+Cuentas Ahorro Otros
+Bancos
+Cuentas Corrientes Otros
+Bancos
+
+Dar clic en "Validar"
+
+Botones: "Cancelar" y "Validar"
+
+Se visualiza en pantalla el siguiente mensaje:
+"El proceso ha sido VALIDADO correctamente.
+Ahora requiere ser ACTUALIZADO para
+continuar con la inscripción."
+Botones: "Actualizar" y "Regresar"
+Se visualiza en pantalla:
+
+6
+
+Dar clic en "Actualizar"
+
+"Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros
+bancos. la entidad destino debe aceptarlas
+primero. Si requiere hacer su pago en este
+momento en la opción de crear pago seleccione
+'Válida Inscripción' la opción 'No' "
+Se visualiza en pantalla:
+
+7
+
+Se selecciona el Item "Consultas" y
+se ingresa a "Procesos Inscripción" Consulta Procesos de Inscripciones
+
+Buscar Procesos de Inscripciones
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Boton "Buscar Proceso"
+8
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza la Inscripción realizada
+anteriormente en estado "Enviado a otro banco"
+
+Se ingresa nuevamente a Consultas
+--> Procesos de
+Inscripción dia habil despues del
+Se visualiza en pantalla:
+proceso de actualización de la
+inscripción (Paso 6)
+
+9
+
+10
+
+Consulta Procesos de Inscripciones
+NOTA: Sí no se recibe comunicación
+para Aceptar o Rechazar la
+Buscar Procesos de Inscripciones
+inscripción y el proceso fue
+actualizado el dia:
+• Servicio Destino
+• Fecha de
+• Lunes: Se visualiza
+• Entre
+Rechazo del proceso el dia
+Miercoles
+• y el
+• Martes: Se visualiza
+• Estado
+Rechazo del proceso el dia
+• Numero Proceso
+Jueves
+• Miercoles: Se visualiza
+Boton "Buscar Proceso"
+Rechazo del proceso el dia
+Viernes
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza el N° Proceso "xxxx" en estado
+Rechazado
+Se visualiza en Pantalla
+Consulta Procesos de Inscripción
+Encabezado Proceso de Inscripción
+
+11
+
+Se da clic en el N° Proceso de la
+Inscripción realizada anteriormente
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+N° Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+•
+•
+•
+
+Nit Cliente
+Nombre
+Valor Máximo
+e-mail
+
+•
+
+Motivo Rechazo
+
+Botones: "Guardar", "Imprimir Proceso" y
+"Regresar"
+12
+
+Validar que, el campo Motivo
+Rechazo responda: "Error de
+Comunicación inscripción no
+realizada"
+
+13
+
+Se hace clic en el boton "Imprimir
+Proceso"
+
+14
+
+Validar que, el campo Motivo del
+Rechazo se visualice "Error de
+Comunicación inscripción no
+realizada"
+
+Se visualiza que la inscripción esta en estado
+"Rechazada" y el campo Motivo de rechazo:
+"Error de Comunicación inscripción no
+realizada"
+Se visualiza en una nueva pantalla el detalle del
+Proceso de Inscripción
+
+Se visualiza correctamente el Motivo del
+Rechazo
+
+Realizar la consulta en base de datos
+Se evidencia que:
+sobre la tabla DetInscripciones:
+
+15
+
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by
+det_fec_crea DESC
+
+•
+•
+
+El campo det_estado se
+visualiza: "Rechazado"
+El campo det_mot_rechazo se
+visualiza: "Error de Comunicación
+inscripción no realizada"
+
+Donde "?" es el Numero de Proceso
+de Inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13326: Parámetro = 2 días Hábiles [Versión : 1]
+Autor:
+
+Digital Bank
+
+Resumen:
+Validar que cuando se realice una Inscripción ACH y el registro se encuentre en estado “Enviado a otro
+banco”, y cumpla 2 dias habiles sin respuesta, esta inscripción será modificada a estado “Rechazado” y
+el motivo del rechazo será: “Error de Comunicación inscripción no realizada”
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+1
+
+Se ingresa al Modulo de
+Inscripciones y se da clic en el
+item Crear Inscripción
+
+Ingrese Datos del Encabezado
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+2
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar Inscripciones" y
+"Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+3
+
+Dar clic en el boton Digitar
+Inscripciones
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio Destino
+Nº Producto o Servicio Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y "Regresar"
+4
+
+Ingresar los datos obligatorios y
+se da clic en el boton
+"Continuar"
+
+Se visualiza el siguiente mensaje en pantalla "Para
+continuar con la inscripción de clic en validar"
+Botones: "Cancelar" y "Validar"
+
+NOTA: En el campo Tipo
+Producto o Servicio Destino
+seleccionar:
+
+•
+•
+
+5
+
+Cuentas Ahorro Otros
+Bancos
+Cuentas Corrientes
+Otros Bancos
+
+Dar clic en "Validar"
+
+Se visualiza en pantalla el siguiente mensaje: "El
+proceso ha sido VALIDADO correctamente. Ahora
+requiere ser ACTUALIZADO para continuar con la
+inscripción."
+Botones: "Actualizar" y "Regresar"
+Se visualiza en pantalla:
+
+6
+
+Dar clic en "Actualizar"
+
+"Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros
+bancos. la entidad destino debe aceptarlas primero.
+Si requiere hacer su pago en este momento en la
+opción de crear pago seleccione 'Válida Inscripción'
+la opción 'No' "
+Se visualiza en pantalla:
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+7
+
+Se selecciona el Item
+"Consultas" y se ingresa a
+"Procesos Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Boton "Buscar Proceso"
+8
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza la Inscripción realizada anteriormente
+en estado "Enviado a otro banco"
+
+Se ingresa nuevamente a
+Consultas --> Procesos de
+Se visualiza en pantalla:
+Inscripción dias habiles despues
+del proceso de actualización de la
+Consulta Procesos de Inscripciones
+inscripción (Paso 6)
+
+9
+
+NOTA: Sí no se recibe
+comunicación para Aceptar o
+Rechazar la inscripción y el
+proceso fue actualizado el dia:
+
+•
+•
+
+Buscar Procesos de Inscripciones
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Lunes: Se visualiza
+Rechazo del proceso el
+dia Jueves
+Martes: Se visualiza
+Rechazo del proceso el
+dia Viernes
+Boton "Buscar Proceso"
+
+10
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza el N° Proceso "xxxx" en estado
+Rechazado
+Se visualiza en Pantalla
+Consulta Procesos de Inscripción
+Encabezado Proceso de Inscripción
+
+11
+
+Se da clic en el N° Proceso de la
+Inscripción realizada
+anteriormente
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+N° Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+•
+•
+•
+•
+
+Nit Cliente
+Nombre
+Valor Máximo
+e-mail
+Motivo Rechazo
+
+Botones: "Guardar", "Imprimir Proceso" y
+"Regresar"
+12
+
+Validar que, el campo Motivo
+Rechazo responda: "Error de
+Comunicación inscripción no
+realizada"
+
+13
+
+Se hace clic en el boton
+"Imprimir Proceso"
+
+14
+
+Validar que, el campo Motivo del
+Rechazo se visualice "Error de
+Se visualiza correctamente el Motivo del Rechazo
+Comunicación inscripción no
+realizada"
+Realizar la consulta en base de
+datos sobre la
+tabla DetInscripciones:
+
+15
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE nomID
+= '?' order by det_fec_crea DESC
+Donde "?" es el Numero de
+Proceso de Inscripción
+
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Se visualiza que la inscripción esta en estado
+"Rechazada" y el campo Motivo de rechazo: "Error
+de Comunicación inscripción no realizada"
+Se visualiza en una nueva pantalla el detalle del
+Proceso de Inscripción
+
+Se evidencia que:
+
+•
+•
+
+El campo det_estado se
+visualiza: "Rechazado"
+El campo det_mot_rechazo se visualiza:
+"Error de Comunicación inscripción no
+realizada"
+
+1.1.2.Suite de Pruebas : Fin de Semana
+
+Caso de Prueba EMPRESARIAL-13328: Parámetro = 1 día Hábil [Versión : 1]
+Autor:
+
+Digital Bank
+
+Resumen:
+Validar que cuando se realice una Inscripción ACH y el registro se encuentre en estado “Enviado a otro
+banco”, y cumpla 1 dia habil sin respuesta, esta inscripción será modificada a estado “Rechazado” y el motivo
+del rechazo será: “Error de Comunicación inscripción no realizada”
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+1
+
+Ingrese Datos del Encabezado
+Se ingresa al Modulo de
+Inscripciones y se da clic en el item
+Crear Inscripción
+• Nombre Proceso Inscripción
+• Cantidad de Inscripciones
+• Servicio Destino
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+
+2
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar
+Inscripciones" y "Regresar"
+Se visualiza en Pantalla:
+3
+
+Dar clic en el boton Digitar
+Inscripciones
+
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio Destino
+Nº Producto o Servicio Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y "Regresar"
+Ingresar los datos obligatorios y se da
+clic en el boton "Continuar"
+
+4
+
+NOTA: En el campo Tipo Producto o Se visualiza el siguiente mensaje en pantalla
+Servicio Destino seleccionar:
+"Para continuar con la inscripción de clic en
+validar"
+
+•
+•
+
+5
+
+Cuentas Ahorro Otros
+Bancos
+Cuentas Corrientes Otros
+Bancos
+
+Dar clic en "Validar"
+
+Botones: "Cancelar" y "Validar"
+
+Se visualiza en pantalla el siguiente mensaje:
+"El proceso ha sido VALIDADO correctamente.
+Ahora requiere ser ACTUALIZADO para
+continuar con la inscripción."
+Botones: "Actualizar" y "Regresar"
+Se visualiza en pantalla:
+
+6
+
+Dar clic en "Actualizar"
+
+"Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros
+bancos. la entidad destino debe aceptarlas
+primero. Si requiere hacer su pago en este
+momento en la opción de crear pago seleccione
+'Válida Inscripción' la opción 'No' "
+Se visualiza en pantalla:
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+7
+
+Se selecciona el Item "Consultas" y
+se ingresa a "Procesos Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Boton "Buscar Proceso"
+8
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza la Inscripción realizada
+anteriormente en estado "Enviado a otro banco"
+
+Se ingresa nuevamente a Consultas
+--> Procesos de
+Inscripción dia habil despues del
+proceso de actualización de la
+Se visualiza en pantalla:
+inscripción (Paso 6)
+NOTA: NO se debe tener en cuenta
+los dias: Sabados ni Domingos, es
+decir:
+9
+
+Sí no se recibe comunicación para
+Aceptar o Rechazar la inscripción y el
+proceso fue actualizado el dia:
+
+•
+•
+
+10
+
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Jueves: Se visualiza
+Rechazo del proceso el dia
+Lunes
+Viernes: Se visualiza
+Boton "Buscar Proceso"
+Rechazo del proceso el dia
+Martes
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza el N° Proceso "xxxx" en estado
+Rechazado
+Se visualiza en Pantalla
+Consulta Procesos de Inscripción
+Encabezado Proceso de Inscripción
+
+11
+
+Se da clic en el N° Proceso de la
+Inscripción realizada anteriormente
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+N° Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+•
+•
+•
+•
+
+Nit Cliente
+Nombre
+Valor Máximo
+e-mail
+Motivo Rechazo
+
+Botones: "Guardar", "Imprimir Proceso" y
+"Regresar"
+12
+
+Validar que, el campo Motivo
+Rechazo responda: "Error de
+Comunicación inscripción no
+realizada"
+
+13
+
+Se hace clic en el boton "Imprimir
+Proceso"
+
+Se visualiza que la inscripción esta en estado
+"Rechazada" y el campo Motivo de rechazo:
+"Error de Comunicación inscripción no
+realizada"
+Se visualiza en una nueva pantalla el detalle del
+Proceso de Inscripción
+
+14
+
+Validar que, el campo Motivo del
+Rechazo se visualice "Error de
+Comunicación inscripción no
+realizada"
+
+Se visualiza correctamente el Motivo del
+Rechazo
+
+Realizar la consulta en base de datos
+Se evidencia que:
+sobre la tabla DetInscripciones:
+
+15
+
+•
+
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by
+det_fec_crea DESC
+
+•
+
+El campo det_estado se
+visualiza: "Rechazado"
+El campo det_mot_rechazo se
+visualiza: "Error de Comunicación
+inscripción no realizada"
+
+Donde "?" es el Numero de Proceso
+de Inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-12975: Parámetro = 2 días Hábiles [Versión : 1]
+Autor:
+
+Digital Bank
+
+Resumen:
+Validar que cuando se realice una Inscripción ACH y el registro se encuentre en estado “Enviado a otro
+banco”, y cumpla 2 dias habiles sin respuesta, esta inscripción será modificada a estado “Rechazado” y
+el motivo del rechazo será: “Error de Comunicación inscripción no realizada”
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+1
+
+Se ingresa al Modulo de
+Inscripciones y se da clic en el
+item Crear Inscripción
+
+Ingrese Datos del Encabezado
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+2
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar Inscripciones" y
+"Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+3
+
+Dar clic en el boton Digitar
+Inscripciones
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio Destino
+Nº Producto o Servicio Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y "Regresar"
+Ingresar los datos obligatorios y
+se da clic en el boton
+"Continuar"
+
+4
+
+NOTA: En el campo Tipo
+Producto o Servicio Destino
+seleccionar:
+
+•
+•
+
+5
+
+Cuentas Ahorro Otros
+Bancos
+Cuentas Corrientes
+Otros Bancos
+
+Dar clic en "Validar"
+
+Se visualiza el siguiente mensaje en pantalla "Para
+continuar con la inscripción de clic en validar"
+Botones: "Cancelar" y "Validar"
+
+Se visualiza en pantalla el siguiente mensaje: "El
+proceso ha sido VALIDADO correctamente. Ahora
+requiere ser ACTUALIZADO para continuar con la
+inscripción."
+Botones: "Actualizar" y "Regresar"
+
+Se visualiza en pantalla:
+
+6
+
+Dar clic en "Actualizar"
+
+"Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros
+bancos. la entidad destino debe aceptarlas primero.
+Si requiere hacer su pago en este momento en la
+opción de crear pago seleccione 'Válida Inscripción'
+la opción 'No' "
+Se visualiza en pantalla:
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+7
+
+Se selecciona el Item
+"Consultas" y se ingresa a
+"Procesos Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Boton "Buscar Proceso"
+8
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza la Inscripción realizada anteriormente
+en estado "Enviado a otro banco"
+
+Se ingresa nuevamente a
+Consultas --> Procesos de
+Inscripción dias habiles despues
+del proceso de actualización de la
+inscripción (Paso 6)
+Se visualiza en pantalla:
+NOTA: NO se debe tener en
+cuenta los dias: Sabados
+ni Domingos, es decir:
+
+9
+
+Sí no se recibe comunicación
+para Aceptar o Rechazar la
+inscripción y el proceso fue
+actualizado el dia:
+
+•
+•
+•
+
+10
+
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Miercoles: Se visualiza
+Rechazo del proceso el
+dia Lunes
+Jueves: Se visualiza
+Rechazo del proceso el
+Boton "Buscar Proceso"
+dia Martes
+Viernes: Se visualiza
+Rechazo del proceso el
+dia Miercoles
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza el N° Proceso "xxxx" en estado
+Rechazado
+Se visualiza en Pantalla
+
+11
+
+Se da clic en el N° Proceso de la Consulta Procesos de Inscripción
+Inscripción realizada
+anteriormente
+Encabezado Proceso de Inscripción
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+N° Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+•
+•
+•
+•
+
+Nit Cliente
+Nombre
+Valor Máximo
+e-mail
+Motivo Rechazo
+
+Botones: "Guardar", "Imprimir Proceso" y
+"Regresar"
+12
+
+Validar que, el campo Motivo
+Rechazo responda: "Error de
+Comunicación inscripción no
+realizada"
+
+13
+
+Se hace clic en el boton
+"Imprimir Proceso"
+
+14
+
+Validar que, el campo Motivo del
+Rechazo se visualice "Error de
+Se visualiza correctamente el Motivo del Rechazo
+Comunicación inscripción no
+realizada"
+Realizar la consulta en base de
+datos sobre la
+tabla DetInscripciones:
+
+15
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE nomID
+= '?' order by det_fec_crea DESC
+
+Se visualiza que la inscripción esta en estado
+"Rechazada" y el campo Motivo de rechazo: "Error
+de Comunicación inscripción no realizada"
+Se visualiza en una nueva pantalla el detalle del
+Proceso de Inscripción
+
+Se evidencia que:
+
+•
+•
+
+El campo det_estado se
+visualiza: "Rechazado"
+El campo det_mot_rechazo se visualiza:
+"Error de Comunicación inscripción no
+realizada"
+
+Donde "?" es el Numero de
+Proceso de Inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.1.3.Suite de Pruebas : Fin de semana con día festivo
+
+Caso de Prueba EMPRESARIAL-13329: Parámetro = 1 día Hábil [Versión : 1]
+Autor:
+
+Digital Bank
+
+Resumen:
+Validar que cuando se realice una Inscripción ACH y el registro se encuentre en estado “Enviado a otro
+banco”, y cumpla 1 dia habil sin respuesta, esta inscripción será modificada a estado “Rechazado” y el motivo
+del rechazo será: “Error de Comunicación inscripción no realizada”
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+1
+
+Ingrese Datos del Encabezado
+Se ingresa al Modulo de
+Inscripciones y se da clic en el item
+Crear Inscripción
+• Nombre Proceso Inscripción
+• Cantidad de Inscripciones
+• Servicio Destino
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+
+2
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar
+Inscripciones" y "Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+3
+
+Dar clic en el boton Digitar
+Inscripciones
+
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+
+•
+•
+•
+•
+•
+•
+•
+
+Tipo Producto o Servicio Destino
+Nº Producto o Servicio Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y "Regresar"
+Ingresar los datos obligatorios y se da
+clic en el boton "Continuar"
+
+4
+
+NOTA: En el campo Tipo Producto o Se visualiza el siguiente mensaje en pantalla
+Servicio Destino seleccionar:
+"Para continuar con la inscripción de clic en
+validar"
+
+•
+•
+
+5
+
+Cuentas Ahorro Otros
+Bancos
+Cuentas Corrientes Otros
+Bancos
+
+Dar clic en "Validar"
+
+Botones: "Cancelar" y "Validar"
+
+Se visualiza en pantalla el siguiente mensaje:
+"El proceso ha sido VALIDADO correctamente.
+Ahora requiere ser ACTUALIZADO para
+continuar con la inscripción."
+Botones: "Actualizar" y "Regresar"
+Se visualiza en pantalla:
+
+6
+
+Dar clic en "Actualizar"
+
+"Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros
+bancos. la entidad destino debe aceptarlas
+primero. Si requiere hacer su pago en este
+momento en la opción de crear pago seleccione
+'Válida Inscripción' la opción 'No' "
+Se visualiza en pantalla:
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+7
+
+Se selecciona el Item "Consultas" y
+se ingresa a "Procesos Inscripción"
+
+8
+
+Se da clic en el boton "Buscar
+Procesos"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Boton "Buscar Proceso"
+
+9
+
+Se visualiza la Inscripción realizada
+anteriormente en estado "Enviado a otro banco"
+
+Se visualiza en pantalla:
+Se ingresa nuevamente a Consultas
+--> Procesos de
+Consulta Procesos de Inscripciones
+Inscripción dia habil despues del
+
+proceso de actualización de la
+inscripción (Paso 6)
+NOTA: NO se debe tener en cuenta
+los dias: Sabados, Domingos ni
+Lunes Festivos, es decir:
+Sí no se recibe comunicación para
+Aceptar o Rechazar la inscripción y el
+proceso fue actualizado el dia:
+
+Buscar Procesos de Inscripciones
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Boton "Buscar Proceso"
+
+•
+•
+
+10
+
+Jueves: Se visualiza
+Rechazo del proceso el dia
+Martes
+Viernes: Se visualiza
+Rechazo del proceso el dia
+Miercoles
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza el N° Proceso "xxxx" en estado
+Rechazado
+Se visualiza en Pantalla
+Consulta Procesos de Inscripción
+Encabezado Proceso de Inscripción
+
+11
+
+Se da clic en el N° Proceso de la
+Inscripción realizada anteriormente
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+N° Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+•
+•
+•
+•
+
+Nit Cliente
+Nombre
+Valor Máximo
+e-mail
+Motivo Rechazo
+
+Botones: "Guardar", "Imprimir Proceso" y
+"Regresar"
+12
+
+Validar que, el campo Motivo
+Rechazo responda: "Error de
+Comunicación inscripción no
+realizada"
+
+13
+
+Se hace clic en el boton "Imprimir
+Proceso"
+
+14
+
+Validar que, el campo Motivo del
+Rechazo se visualice "Error de
+Comunicación inscripción no
+realizada"
+
+Se visualiza que la inscripción esta en estado
+"Rechazada" y el campo Motivo de rechazo:
+"Error de Comunicación inscripción no
+realizada"
+Se visualiza en una nueva pantalla el detalle del
+Proceso de Inscripción
+
+Se visualiza correctamente el Motivo del
+Rechazo
+
+Realizar la consulta en base de datos
+Se evidencia que:
+sobre la tabla DetInscripciones:
+
+15
+
+•
+
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by
+det_fec_crea DESC
+
+•
+
+El campo det_estado se
+visualiza: "Rechazado"
+El campo det_mot_rechazo se
+visualiza: "Error de Comunicación
+inscripción no realizada"
+
+Donde "?" es el Numero de Proceso
+de Inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13325: Parámetro = 2 días Hábiles [Versión : 1]
+Autor:
+
+Digital Bank
+
+Resumen:
+Validar que cuando se realice una Inscripción ACH y el registro se encuentre en estado “Enviado a otro
+banco”, y cumpla 2 dias habiles sin respuesta, esta inscripción será modificada a estado “Rechazado” y
+el motivo del rechazo será: “Error de Comunicación inscripción no realizada”
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+1
+
+Se ingresa al Modulo de
+Inscripciones y se da clic en el
+item Crear Inscripción
+
+Ingrese Datos del Encabezado
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+
+2
+
+Ingresar y Seleccionar los datos
+obligatorios.
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar Inscripciones" y
+"Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+3
+
+Dar clic en el boton Digitar
+Inscripciones
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio Destino
+Nº Producto o Servicio Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y "Regresar"
+Ingresar los datos obligatorios y
+se da clic en el boton
+"Continuar"
+
+4
+
+NOTA: En el campo Tipo
+Producto o Servicio Destino
+seleccionar:
+
+•
+•
+
+5
+
+Cuentas Ahorro Otros
+Bancos
+Cuentas Corrientes
+Otros Bancos
+
+Dar clic en "Validar"
+
+Se visualiza el siguiente mensaje en pantalla "Para
+continuar con la inscripción de clic en validar"
+Botones: "Cancelar" y "Validar"
+
+Se visualiza en pantalla el siguiente mensaje: "El
+proceso ha sido VALIDADO correctamente. Ahora
+requiere ser ACTUALIZADO para continuar con la
+inscripción."
+Botones: "Actualizar" y "Regresar"
+Se visualiza en pantalla:
+
+6
+
+Dar clic en "Actualizar"
+
+"Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros
+
+bancos. la entidad destino debe aceptarlas primero.
+Si requiere hacer su pago en este momento en la
+opción de crear pago seleccione 'Válida Inscripción'
+la opción 'No' "
+Se visualiza en pantalla:
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+7
+
+Se selecciona el Item
+"Consultas" y se ingresa a
+"Procesos Inscripción"
+
+8
+
+Se da clic en el boton "Buscar
+Procesos"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Boton "Buscar Proceso"
+Se visualiza la Inscripción realizada anteriormente
+en estado "Enviado a otro banco"
+
+Se ingresa nuevamente a
+Consultas --> Procesos de
+Inscripción dias habiles despues
+del proceso de actualización de la
+inscripción (Paso 6)
+NOTA: NO se debe tener en
+cuenta los dias: Sabados,
+Domingos ni Lunes Festivos, es
+decir:
+
+Se visualiza en pantalla:
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+9
+
+Sí no se recibe comunicación
+para Aceptar o Rechazar la
+inscripción y el proceso fue
+actualizado el dia:
+
+•
+•
+•
+
+10
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Numero Proceso
+
+Miercoles: Se visualiza
+Rechazo del proceso el
+dia Martes
+Jueves: Se visualiza
+Rechazo del proceso el Boton "Buscar Proceso"
+dia Miercoles
+Viernes: Se visualiza
+Rechazo del proceso el
+dia Jueves
+
+Se da clic en el boton "Buscar
+Procesos"
+
+Se visualiza el N° Proceso "xxxx" en estado
+Rechazado
+Se visualiza en Pantalla
+
+11
+
+Consulta Procesos de Inscripción
+Se da clic en el N° Proceso de la
+Inscripción realizada
+Encabezado Proceso de Inscripción
+anteriormente
+
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+
+•
+•
+•
+•
+
+N° Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+•
+•
+•
+•
+
+Nit Cliente
+Nombre
+Valor Máximo
+e-mail
+Motivo Rechazo
+
+Botones: "Guardar", "Imprimir Proceso" y
+"Regresar"
+12
+
+Validar que, el campo Motivo
+Rechazo responda: "Error de
+Comunicación inscripción no
+realizada"
+
+13
+
+Se hace clic en el boton
+"Imprimir Proceso"
+
+14
+
+Validar que, el campo Motivo del
+Rechazo se visualice "Error de
+Se visualiza correctamente el Motivo del Rechazo
+Comunicación inscripción no
+realizada"
+Realizar la consulta en base de
+datos sobre la
+tabla DetInscripciones:
+
+15
+
+Se visualiza que la inscripción esta en estado
+"Rechazada" y el campo Motivo de rechazo: "Error
+de Comunicación inscripción no realizada"
+Se visualiza en una nueva pantalla el detalle del
+Proceso de Inscripción
+
+Se evidencia que:
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE nomID
+= '?' order by det_fec_crea DESC
+
+•
+•
+
+El campo det_estado se
+visualiza: "Rechazado"
+El campo det_mot_rechazo se visualiza:
+"Error de Comunicación inscripción no
+realizada"
+
+Donde "?" es el Numero de
+Proceso de Inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.2.Suite de Pruebas : Dos inscripciones ACH iguales
+1.2.1.Suite de Pruebas : Inscripción numero 1
+1.2.1.1.Suite de Pruebas : Crear Inscripción
+
+Caso de Prueba EMPRESARIAL-13330: Crear Inscripción - Digitar Inscripciones [Versión : 1]
+
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones de tipo ACH (Tipo Producto o Servicio Destino -> Cuentas
+ahorro/corrientes otros bancos).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con
+las siguientes opciones:
+
+1
+
+Ingresar a Front Portal Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente Empresarial.
+2
+
+•
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Dar clic en el boton "Ingresar"
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Verificar el correcto ingreso al Front del
+Ingresar los datos del Cliente Empresarial. Portal Empresarial:
+3
+
+•
+
+Dar clic en el boton "Ingresar"
+
+•
+
+Se muestran los servicios
+asignados al usuario ingresado.
+
+Se visualiza en Pantalla los siguientes
+item:
+
+4
+
+Seleccionar el Modulo de "Inscripciones"
+
+•
+•
+•
+•
+•
+
+Crear Inscripción
+Administrar Productos o
+Servicios Inscritos
+Reutilizar Inscripción
+Modificar Inscripción
+Eliminar Inscripción
+
+•
+•
+•
+•
+
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingrese Datos del Encabezado
+5
+
+Dar clic en el item "Crear Inscripción"
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+6
+
+•
+
+Dar clic en el boton "Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar
+Inscripciones" y "Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+•
+•
+
+7
+
+Dar clic en el boton "Digitar Inscripciones"
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de
+Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio
+Destino
+Nº Producto o Servicio
+Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+
+•
+
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y
+"Regresar"
+
+8
+
+Ingresar y Seleccionar los datos
+obligatorios. Para el campo "Tipo Producto
+o Servicio Destino" -> Seleccionar la
+opción Cuentas ahorro/corrientes otros
+bancos. Para el campo "Banco Destino" > seleccionar cualquier tipo de banco en la
+lista desplegable.
+
+•
+
+Se debe visualizar un mensaje con el
+siguiente mensaje "Para continuar con la
+inscripción de clic en validar" con 2
+botones, los cuales son "Cancelar" y
+"Validar"
+
+Dar clic en el boton "Continuar"
+
+Si se Selecciona el botón de "Cancelar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana sobre digitar los detalles sobre el
+proceso de inscripción.
+
+10
+
+Si se selecciona el botón de "Validar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana de carga (barra de procesando)
+sobre el proceso de validación de la
+inscripción, de igual forma se debe
+evidenciar el encabezado del proceso de
+incripción y el botón de "Regresar"
+
+11
+
+Si se seleccionar el botón de "Regresar"
+relacionado a el paso anterior
+
+Se debe redireccionar al usuario al
+proceso de digitar registros del proceso de
+inscripción
+
+9
+
+Realizar la consulta en base de datos
+sobre la tabla NomInscripciones
+y DetInscripciones
+
+12
+
+Use PSB_BcoDavivienda
+SELECT * FROM NomInscripciones
+WHERE nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by det_fec_crea
+DESC
+
+Se debe evidenciar que tanto el proceso
+de inscripción como los detalles del
+proceso de inscripción contiene el estado
+de "PENDVALID"
+
+En donde se debe indicar en "?" el valor
+identificador del proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13331: Crear Inscripción - Archivo Plano [Versión : 1]
+Autor:
+Resumen:
+
+QA.Harold.Duarte
+
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba con un archivo plano que contenga Inscripciones de tipo ACH (Tipo Producto o Servicio
+Destino -> Cuentas ahorro/corrientes otros bancos).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con las
+siguientes opciones:
+
+1
+
+Ingresar a Front Portal
+Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente
+Empresarial.
+2
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Ingresar los datos del Cliente
+Empresarial.
+3
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+Verificar el correcto ingreso al Front del Portal
+Empresarial:
+
+•
+
+Se muestran los servicios asignados al
+usuario ingresado.
+
+Se visualiza en Pantalla los siguientes item:
+
+4
+
+Seleccionar el Modulo de
+"Inscripciones"
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Crear Inscripción
+Administrar Productos o Servicios Inscritos
+Reutilizar Inscripción
+Modificar Inscripción
+Eliminar Inscripción
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+5
+
+Dar clic en el item "Crear
+Inscripción"
+
+Ingrese Datos del Encabezado
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+Encabezado del Proceso Inscripción
+obligatorios.
+6
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar Inscripciones" y
+"Regresar"
+
+7
+
+Dar clic en el botón de
+"Importar Archivo"
+
+Se debe visualizar la correcta importanción del
+archivo con los detalles de las inscripciones y se debe
+visualizar un mensaje que comenta "Para continuar
+con la inscripción de clic en validar" con 2 botones,
+los cuales son "Cancelar" y "Validar"
+
+8
+
+Si se Selecciona el botón de
+"Cancelar" relacionado a el
+mensaje del paso anterior.
+
+Se debe redireccionar al usuario a la ventana sobre
+digitar los detalles sobre el proceso de importación de
+archivo plano.
+
+9
+
+Si se selecciona el botón de
+"Validar" relacionado a el paso
+7
+
+Se debe redireccionar al usuario a la ventana de
+carga (barra de procesando) sobre el proceso de
+validación de la inscripción, de igual forma se debe
+evidenciar el encabezado del proceso de incripción y
+el botón de "Regresar"
+
+10
+
+Si se seleccionar el botón de
+"Regresar" relacionado a el
+paso anterior
+
+Se debe redireccionar al usuario al proceso de digitar
+registros del proceso de inscripción
+
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+11
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado de "PENDVALID"
+
+En donde se debe indicar en "?"
+el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.2.1.2.Suite de Pruebas : Validar Inscripción
+
+Caso de Prueba EMPRESARIAL-13333: Validar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Se debe visualizar un mensaje que comenta "El proceso
+ha sido VALIDADO correctamente. Ahora requiere ser
+Una vez se finalice el
+ACTUALIZADO para continuar con la inscripción." con
+proceso de validación y si el los botones de "Regresar" y "Actualizar", este último
+proceso fue exitoso
+estará ubicado al lado izquiero del botón de "Regresar",
+de igual forma se debe visualizar el encabezado del
+proceso de inscripción
+
+2
+
+Si se selecciona el botón de Se debe redireccionar al usuario a la ventana
+"Regresar" relacionado al
+relacionada a la búsqueda de procesos que se
+paso anterior
+encuentran pendientes de validación sobre inscripciones
+
+3
+
+Se debe redireccionar al usuario a la venta sobre la
+Si se selecciona el botón de
+pantalla de carga (procesando) sobre la actualización,
+"Actualizar" relacionado al
+para posteriormente visualizar el resultado de dicho
+paso 1
+proceso
+
+4
+
+Realiza la consulta por base
+de datos a la tabla
+"NomInscripciones" y
+Se debe evidenciar que tanto el proceso de inscripción
+"DetInscripciones"
+como los detalles del proceso de inscripción contiene el
+estado de "PENDACT"
+Use PSB_BcoDavivienda
+SELECT * FROM
+
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13335: Validar Inscripciones - Procesos Filtro de búsqueda [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos)
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Validar Procesos de Inscripciones
+
+1
+
+Dar clic en el item "Validar
+Inscripción"
+
+Buscar Procesos de Inscripciones
+
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+
+•
+
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+2
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+
+•
+3
+
+Dar clic en el item "Validar"
+
+¿Está seguro de Validar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+
+Se visualiza en Pantalla:
+Encabezado Proceso de Inscripción
+
+4
+
+Dar clic en el boton "Aceptar"
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+Nº Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+El proceso ha sido VALIDADO correctamente.
+Ahora requiere ser ACTUALIZADO para
+continuar con la inscripción.
+Realiza la consulta por base de
+datos a la tabla "NomInscripciones"
+y "DetInscripciones"
+
+5
+
+Use PSB_BcoDavivienda
+SELECT * FROM NomInscripciones
+WHERE nomID = '?' order by
+nom_fec_crea DESC
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado de "PENDACT"
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by
+det_fec_crea DESC
+En donde se debe indicar en "?" el
+valor identificador del proceso de
+inscripción
+
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.2.1.3.Suite de Pruebas : Actualizar Inscripción
+
+Caso de Prueba EMPRESARIAL-13337: Actualizar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Si se realiza el proceso de
+actualización de manera
+exitosa
+
+Se debe visualizar un mensaje que comenta "Las
+cuentas Davivienda y Daviplata tendrán resultado de
+inmediato, las cuentas de otros bancos, la entidad
+destino debe aceptarlas primero. Si requiere hacer su
+pago en este momento en la opción de crear pago
+seleccione 'Valida Inscripción' la opción 'No'", de igual
+forma se visualiza el encabezado del proceso de
+inscripción y la sección de autorizaciones vinculadas al
+proceso. También se debe visualizar el botón de
+"Regresar"
+
+2
+
+Si se selecciona el botón de
+Regresar comentado en el
+paso anterior
+
+Se debe redireccionar al usuario a la ventana sobre la
+búsqueda de inscripciones que se encuentra
+pendientes de actualizar
+
+3
+
+Realizar la consulta por bases
+de datos de la
+tabla AgendamientoPagos
+Se debe evidenciar que el registro relacionado a la
+y TransaccionesPago
+tabla AgendamientoPagos corresponde a sch_estado
+"EJECUTADO" y sch_ind_proceso "VALIDACION".
+Use PSB_BcoDavivienda
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+
+Se debe evidenciar que el registro relacionado a la
+tabla TransaccionesPago corresponde a trx_estado
+"EJECUTADA" y trx_estado_ejec "EJECUTADA".
+
+Use PSB_BcoDavivienda
+select * from
+TransaccionesPago where
+schID = ? order by trx_orden
+ASC
+En donde en el simbolo de "?"
+corresponde al identificador del
+proceso
+Realizar la consulta en base
+de datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+4
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de inscripción
+como los detalles del proceso de inscripción contiene
+el estado resultante del proceso de actualización, es
+decir, en estado "OTROBANCO" antes de ser
+aceptada.
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Nota: Una vez se acepte la inscripción por la entidad
+destino su estado deberá quedar en "ACEPTADO".
+(Para la presente prueba el estado debe quedar
+siempre en "OTROBANCO").
+
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13338: Actualizar Inscripción - Procesos Filtro de búsqueda [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Actualizar Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+1
+
+Dar clic en el item "Actualizar
+Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+2
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+3
+
+Dar clic en el item "Actualizar"
+
+•
+
+¿Está seguro de Actualizar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+Se visualiza en Pantalla:
+Encabezado Proceso de Inscripción
+
+4
+
+Dar clic en el boton "Aceptar"
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso
+Estado (Enviado a otro banco)
+Nº Proceso
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros
+bancos, la entidad destino debe aceptarlas primero.
+Si requiere hacer su pago en este momento en la
+opción de crear pago seleccione 'Valida Inscripción'
+la opción 'No'
+Autorizaciones Realizadas
+
+•
+•
+•
+
+NIT
+Nombre
+Fecha
+
+Realizar la consulta por bases de
+datos de la
+tabla AgendamientoPagos
+y TransaccionesPago
+Use PSB_BcoDavivienda
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+
+5
+
+Se debe evidenciar que el registro relacionado a la
+tabla AgendamientoPagos corresponde a
+sch_estado "EJECUTADO" y sch_ind_proceso
+"VALIDACION".
+
+Use PSB_BcoDavivienda
+
+Se debe evidenciar que el registro relacionado a la
+tabla TransaccionesPago corresponde a trx_estado
+select * from TransaccionesPago "EJECUTADA" y trx_estado_ejec "EJECUTADA".
+where schID = ? order by
+trx_orden ASC
+En donde en el simbolo de "?"
+corresponde al identificador del
+proceso
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+
+6
+
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado resultante del
+proceso de actualización, es decir, en estado
+"OTROBANCO" antes de ser aceptada.
+
+Nota: Una vez se acepte la inscripción por la
+Use PSB_BcoDavivienda
+entidad destino su estado deberá quedar
+SELECT * FROM
+en "ACEPTADO". (Para la presente prueba el
+DetInscripciones WHERE nomID
+estado debe quedar siempre en "OTROBANCO").
+= '?' order by det_fec_crea DESC
+En donde se debe indicar en "?"
+el valor identificador del proceso
+de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.2.2.Suite de Pruebas : Inscripción numero 2 (Mismos datos de inscripción numero 1)
+1.2.2.1.Suite de Pruebas : Crear Inscripción
+
+Caso de Prueba EMPRESARIAL-13342: Crear Inscripción - Digitar Inscripciones [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones de tipo ACH (Tipo Producto o Servicio Destino -> Cuentas
+ahorro/corrientes otros bancos)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con
+las siguientes opciones:
+
+1
+
+Ingresar a Front Portal Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente Empresarial.
+2
+
+•
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Dar clic en el boton "Ingresar"
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Verificar el correcto ingreso al Front del
+Ingresar los datos del Cliente Empresarial. Portal Empresarial:
+3
+
+4
+
+•
+
+Dar clic en el boton "Ingresar"
+
+Seleccionar el Modulo de "Inscripciones"
+
+•
+
+Se muestran los servicios
+asignados al usuario ingresado.
+
+Se visualiza en Pantalla los siguientes
+item:
+
+•
+
+Crear Inscripción
+
+•
+•
+•
+•
+•
+•
+•
+•
+
+Administrar Productos o
+Servicios Inscritos
+Reutilizar Inscripción
+Modificar Inscripción
+Eliminar Inscripción
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingrese Datos del Encabezado
+5
+
+Dar clic en el item "Crear Inscripción"
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+6
+
+•
+
+Dar clic en el boton "Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar
+Inscripciones" y "Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+•
+•
+7
+
+Dar clic en el boton "Digitar Inscripciones"
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de
+Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio
+Destino
+Nº Producto o Servicio
+Destino
+Banco Destino
+
+•
+•
+•
+•
+
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y
+"Regresar"
+
+8
+
+Ingresar y Seleccionar los datos
+obligatorios. Para el campo "Tipo Producto
+o Servicio Destino" -> Seleccionar la
+opción Cuentas ahorro/corrientes otros
+bancos. Para el campo "Banco Destino" > seleccionar cualquier tipo de banco en la
+lista desplegable.
+
+•
+
+Se debe visualizar un mensaje con el
+siguiente mensaje "Para continuar con la
+inscripción de clic en validar" con 2
+botones, los cuales son "Cancelar" y
+"Validar"
+
+Dar clic en el boton "Continuar"
+
+Si se Selecciona el botón de "Cancelar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana sobre digitar los detalles sobre el
+proceso de inscripción.
+
+10
+
+Si se selecciona el botón de "Validar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana de carga (barra de procesando)
+sobre el proceso de validación de la
+inscripción, de igual forma se debe
+evidenciar el encabezado del proceso de
+incripción y el botón de "Regresar"
+
+11
+
+Si se seleccionar el botón de "Regresar"
+relacionado a el paso anterior
+
+Se debe redireccionar al usuario al
+proceso de digitar registros del proceso de
+inscripción
+
+9
+
+Realizar la consulta en base de datos
+sobre la tabla NomInscripciones
+y DetInscripciones
+
+12
+
+Use PSB_BcoDavivienda
+SELECT * FROM NomInscripciones
+WHERE nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by det_fec_crea
+DESC
+
+Se debe evidenciar que tanto el proceso
+de inscripción como los detalles del
+proceso de inscripción contiene el estado
+de "PENDVALID"
+
+En donde se debe indicar en "?" el valor
+identificador del proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13343: Crear Inscripción - Archivo Plano [Versión : 1]
+
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba con un archivo plano que contenga Inscripciones de tipo ACH (Tipo Producto o Servicio
+Destino -> Cuentas ahorro/corrientes otros bancos)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con las
+siguientes opciones:
+
+1
+
+Ingresar a Front Portal
+Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente
+Empresarial.
+2
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Ingresar los datos del Cliente
+Empresarial.
+3
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+Verificar el correcto ingreso al Front del Portal
+Empresarial:
+
+•
+
+Se muestran los servicios asignados al
+usuario ingresado.
+
+Se visualiza en Pantalla los siguientes item:
+4
+
+Seleccionar el Modulo de
+"Inscripciones"
+
+•
+•
+•
+
+Crear Inscripción
+Administrar Productos o Servicios Inscritos
+Reutilizar Inscripción
+
+•
+•
+•
+•
+•
+•
+
+Modificar Inscripción
+Eliminar Inscripción
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+5
+
+Dar clic en el item "Crear
+Inscripción"
+
+Ingrese Datos del Encabezado
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+Encabezado del Proceso Inscripción
+obligatorios.
+6
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar Inscripciones" y
+"Regresar"
+
+7
+
+Dar clic en el botón de
+"Importar Archivo"
+
+Se debe visualizar la correcta importanción del
+archivo con los detalles de las inscripciones y se debe
+visualizar un mensaje que comenta "Para continuar
+con la inscripción de clic en validar" con 2 botones,
+los cuales son "Cancelar" y "Validar"
+
+8
+
+Si se Selecciona el botón de
+"Cancelar" relacionado a el
+mensaje del paso anterior.
+
+Se debe redireccionar al usuario a la ventana sobre
+digitar los detalles sobre el proceso de importación de
+archivo plano.
+
+9
+
+Si se selecciona el botón de
+"Validar" relacionado a el paso
+7
+
+Se debe redireccionar al usuario a la ventana de
+carga (barra de procesando) sobre el proceso de
+validación de la inscripción, de igual forma se debe
+evidenciar el encabezado del proceso de incripción y
+el botón de "Regresar"
+
+10
+
+Si se seleccionar el botón de
+"Regresar" relacionado a el
+paso anterior
+
+Se debe redireccionar al usuario al proceso de digitar
+registros del proceso de inscripción
+
+11
+
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+Se debe evidenciar que tanto el proceso de
+y DetInscripciones
+inscripción como los detalles del proceso de
+inscripción contiene el estado de "PENDVALID"
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+En donde se debe indicar en "?"
+el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.2.2.2.Suite de Pruebas : Validar Inscripción
+
+Caso de Prueba EMPRESARIAL-13344: Validar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Se debe visualizar un mensaje que comenta "El proceso
+ha sido VALIDADO correctamente. Ahora requiere ser
+Una vez se finalice el
+ACTUALIZADO para continuar con la inscripción." con
+proceso de validación y si el los botones de "Regresar" y "Actualizar", este último
+proceso fue exitoso
+estará ubicado al lado izquiero del botón de "Regresar",
+de igual forma se debe visualizar el encabezado del
+proceso de inscripción
+
+2
+
+Si se selecciona el botón de Se debe redireccionar al usuario a la ventana
+"Regresar" relacionado al
+relacionada a la búsqueda de procesos que se
+paso anterior
+encuentran pendientes de validación sobre inscripciones
+
+3
+
+Se debe redireccionar al usuario a la venta sobre la
+Si se selecciona el botón de
+pantalla de carga (procesando) sobre la actualización,
+"Actualizar" relacionado al
+para posteriormente visualizar el resultado de dicho
+paso 1
+proceso
+Realiza la consulta por base
+de datos a la tabla
+"NomInscripciones" y
+"DetInscripciones"
+
+4
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de inscripción
+como los detalles del proceso de inscripción contiene el
+estado de "PENDACT"
+
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13345: Validar Inscripciones - Procesos Filtro de búsqueda [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Validar Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+1
+
+Dar clic en el item "Validar
+Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+2
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+
+•
+3
+
+Dar clic en el item "Validar"
+
+¿Está seguro de Validar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+
+Se visualiza en Pantalla:
+Encabezado Proceso de Inscripción
+
+4
+
+Dar clic en el boton "Aceptar"
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+Nº Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+El proceso ha sido VALIDADO correctamente.
+Ahora requiere ser ACTUALIZADO para
+continuar con la inscripción.
+
+Realiza la consulta por base de
+datos a la tabla "NomInscripciones"
+y "DetInscripciones"
+Use PSB_BcoDavivienda
+SELECT * FROM NomInscripciones
+WHERE nomID = '?' order by
+nom_fec_crea DESC
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado de "PENDACT"
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by
+det_fec_crea DESC
+
+5
+
+En donde se debe indicar en "?" el
+valor identificador del proceso de
+inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.2.2.3.Suite de Pruebas : Actualizar Inscripción
+
+Caso de Prueba EMPRESARIAL-13346: Actualizar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Se realiza el proceso de
+actualización con el
+estado "Rechazado".
+
+Se debe visualizar un mensaje que comenta "Su
+proceso de inscripción fue rechazado. Para verificar el
+resultado ingrese a la opción 'Consultas' del menú de
+
+Inscripciones., de igual forma se visualiza el
+encabezado del proceso de inscripción y la sección
+de autorizaciones vinculadas al proceso. También se
+debe visualizar el botón de "Regresar"
+2
+
+Si se selecciona el botón de
+Regresar comentado en el
+paso anterior
+
+Se debe redireccionar al usuario a la ventana sobre la
+búsqueda de inscripciones que se encuentra
+pendientes de actualizar
+
+Realizar la consulta por bases
+de datos de la
+tabla AgendamientoPagos
+y Inscripciones
+Use PSB_BcoDavivienda
+
+3
+
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+Use PSB_BcoDavivienda
+select * from Inscripciones
+order by inc_fec_modif desc
+
+Se debe evidenciar que el registro relacionado a la
+tabla AgendamientoPagos corresponde a sch_estado
+"EJECUTADO" y sch_ind_proceso "VALIDACION".
+No se debe evidenciar ningun registro relacionado al
+proceso creado anteriormente, ya que su
+actualización quedo en estado "Rechazado" dentro de
+la tabla Inscripciones.
+
+En donde en el simbolo de "?"
+corresponde al identificador del
+proceso
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+4
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado resultante del proceso
+de actualización, es decir, en estado "RECHAZADO"
+con el motivo de rechazo: “Esta solicitud de
+inscripción se encuentra en proceso de respuesta”.
+
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13347: Actualizar Inscripción - Procesos Filtro de búsqueda [Versión : 1]
+
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Actualizar Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+1
+
+Dar clic en el item "Actualizar
+Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+2
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+3
+
+Dar clic en el item "Actualizar"
+
+•
+
+¿Está seguro de Actualizar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+
+Se visualiza en Pantalla:
+Encabezado Proceso de Inscripción
+
+•
+•
+•
+•
+•
+•
+4
+
+Nombre Proceso
+Estado (Rechazado)
+Nº Proceso
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Dar clic en el boton "Aceptar"
+Su proceso de inscripción fue rechazado. Para
+verificar el resultado ingrese a la opción 'Consultas'
+del menú de Inscripciones.
+Autorizaciones Realizadas
+
+•
+•
+•
+
+NIT
+Nombre
+Fecha
+
+Realizar la consulta por bases
+de datos de la
+tabla AgendamientoPagos
+y Inscripciones
+Use PSB_BcoDavivienda
+
+5
+
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+
+Se debe evidenciar que el registro relacionado a la
+tabla AgendamientoPagos corresponde a
+sch_estado "EJECUTADO" y sch_ind_proceso
+"VALIDACION".
+
+No se debe evidenciar ningun registro relacionado al
+proceso creado anteriormente, ya que su
+actualización quedo en estado "Rechazado" dentro
+select * from Inscripciones order de la tabla Inscripciones.
+Use PSB_BcoDavivienda
+
+by inc_fec_modif desc
+En donde en el simbolo de "?"
+corresponde al identificador del
+proceso
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+6
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado resultante del proceso
+de actualización, es decir, en estado "RECHAZADO"
+con el motivo de rechazo: “Esta solicitud de
+inscripción se encuentra en proceso de respuesta”.
+
+En donde se debe indicar en "?"
+el valor identificador del proceso
+de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.2.2.4.Suite de Pruebas : Consultas.
+
+Caso de Prueba EMPRESARIAL-13350: Procesos Inscripción. [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla los siguientes
+item:
+
+1
+
+Dar clic en el item "Consultas"
+
+•
+•
+•
+
+Procesos Inscripción
+Estados de Inscripciones
+Productos o Servicio
+
+Se visualiza en Pantalla:
+Consulta Procesos de Inscripciones
+2
+
+Dar clic en el item "Procesos Inscripción"
+
+Buscar Procesos de Inscripciones
+
+•
+•
+
+Servicio Destino
+Fecha de
+
+•
+•
+•
+•
+
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+Resultados de Búsqueda
+Seleccionar el Filtro por Fecha "Entre
+el..."
+3
+
+•
+
+Dar clic en el boton "Buscar
+Procesos"
+
+y
+
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Servicio
+Fecha de Proceso
+Estado
+Nombre
+Cantidad
+Acción
+
+Se visualiza en Pantalla:
+Consulta Procesos de Inscripción
+Encabezado Proceso de Inscripción
+
+•
+
+4
+
+Dar clic en el item "Consultar
+Inscripciones" para el registro creado
+previamente con el estado rechazado.
+
+•
+•
+•
+•
+•
+
+Nombre Proceso de
+Inscripción
+Estado (Rechazado)
+Nº Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+•
+•
+•
+•
+
+Nit Cliente
+Nombre
+Valor máximo
+e-mail
+Motivo Rechazo -> “Esta solicitud
+de inscripción se encuentra en
+proceso de respuesta”
+
+Botones "Guardar", "Imprimir Proceso" y
+"Regresar"
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.3.Suite de Pruebas : Inscripciones ACH Y DV iguales (Pagado Parcial)
+
+1.3.1.Suite de Pruebas : Inscripción numero 1
+1.3.1.1.Suite de Pruebas : Crear Inscripción
+
+Caso de Prueba EMPRESARIAL-13353: Crear Inscripción - Digitar Inscripciones [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones de tipo ACH Y DV (Tipo Producto o Servicio Destino -> Cuentas
+ahorro/corrientes otros bancos - Cuentas corriente/ahorro).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con
+las siguientes opciones:
+
+1
+
+Ingresar a Front Portal Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente Empresarial.
+2
+
+•
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Dar clic en el boton "Ingresar"
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Ingresar los datos del Cliente Empresarial.
+3
+
+•
+
+Dar clic en el boton "Ingresar"
+
+Verificar el correcto ingreso al Front del
+Portal Empresarial:
+
+•
+
+Se muestran los servicios
+asignados al usuario ingresado.
+
+Se visualiza en Pantalla los siguientes
+item:
+
+•
+•
+4
+
+Seleccionar el Modulo de "Inscripciones"
+
+•
+•
+•
+•
+•
+•
+•
+
+Crear Inscripción
+Administrar Productos o
+Servicios Inscritos
+Reutilizar Inscripción
+Modificar Inscripción
+Eliminar Inscripción
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingrese Datos del Encabezado
+5
+
+Dar clic en el item "Crear Inscripción"
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+6
+
+•
+
+Dar clic en el boton "Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar
+Inscripciones" y "Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Detalle de la Inscripción
+
+7
+
+Dar clic en el boton "Digitar Inscripciones"
+
+•
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de
+Inscripción
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+
+•
+•
+•
+•
+•
+•
+•
+
+Tipo Producto o Servicio
+Destino
+Nº Producto o Servicio
+Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y
+"Regresar"
+
+8
+
+Ingresar y Seleccionar los datos
+obligatorios. Para el campo "Tipo Producto o
+Servicio Destino" -> Seleccionar la
+opción Cuentas ahorro/corrientes otros
+Se debe visualizar un mensaje con el
+bancos y Cuentas corriente/ahorro. Para el
+siguiente mensaje "Para continuar con la
+campo "Banco Destino" -> seleccionar
+inscripción de clic en validar" con 2
+cualquier tipo de banco en la lista
+botones, los cuales son "Cancelar" y
+desplegable.
+"Validar"
+
+•
+
+Dar clic en el boton "Continuar"
+
+Si se Selecciona el botón de "Cancelar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana sobre digitar los detalles sobre el
+proceso de inscripción.
+
+10
+
+Si se selecciona el botón de "Validar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana de carga (barra de procesando)
+sobre el proceso de validación de la
+inscripción, de igual forma se debe
+evidenciar el encabezado del proceso de
+incripción y el botón de "Regresar"
+
+11
+
+Si se seleccionar el botón de "Regresar"
+relacionado a el paso anterior
+
+Se debe redireccionar al usuario al
+proceso de digitar registros del proceso
+de inscripción
+
+9
+
+Realizar la consulta en base de datos sobre
+la tabla NomInscripciones
+y DetInscripciones
+
+12
+
+Use PSB_BcoDavivienda
+SELECT * FROM NomInscripciones
+WHERE nomID = '?' order by nom_fec_crea Se debe evidenciar que tanto el proceso
+de inscripción como los detalles del
+DESC
+proceso de inscripción contiene el estado
+de "PENDVALID"
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones WHERE
+nomID = '?' order by det_fec_crea DESC
+En donde se debe indicar en "?" el valor
+identificador del proceso de inscripción
+
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13354: Crear Inscripción - Archivo Plano [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba con un archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo Producto o
+Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con las
+siguientes opciones:
+
+1
+
+Ingresar a Front Portal
+Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente
+Empresarial.
+2
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Ingresar los datos del Cliente
+Empresarial.
+3
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+Verificar el correcto ingreso al Front del Portal
+Empresarial:
+
+•
+
+Se muestran los servicios asignados al
+usuario ingresado.
+
+Se visualiza en Pantalla los siguientes item:
+4
+
+Seleccionar el Modulo de
+"Inscripciones"
+
+•
+•
+•
+
+Crear Inscripción
+Administrar Productos o Servicios Inscritos
+Reutilizar Inscripción
+
+•
+•
+•
+•
+•
+•
+
+Modificar Inscripción
+Eliminar Inscripción
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+5
+
+Dar clic en el item "Crear
+Inscripción"
+
+Ingrese Datos del Encabezado
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+Encabezado del Proceso Inscripción
+obligatorios.
+6
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar Inscripciones" y
+"Regresar"
+
+7
+
+Dar clic en el botón de
+"Importar Archivo"
+
+Se debe visualizar la correcta importanción del
+archivo con los detalles de las inscripciones y se debe
+visualizar un mensaje que comenta "Para continuar
+con la inscripción de clic en validar" con 2 botones,
+los cuales son "Cancelar" y "Validar"
+
+8
+
+Si se Selecciona el botón de
+"Cancelar" relacionado a el
+mensaje del paso anterior.
+
+Se debe redireccionar al usuario a la ventana sobre
+digitar los detalles sobre el proceso de importación de
+archivo plano.
+
+9
+
+Si se selecciona el botón de
+"Validar" relacionado a el paso
+7
+
+Se debe redireccionar al usuario a la ventana de
+carga (barra de procesando) sobre el proceso de
+validación de la inscripción, de igual forma se debe
+evidenciar el encabezado del proceso de incripción y
+el botón de "Regresar"
+
+10
+
+Si se seleccionar el botón de
+"Regresar" relacionado a el
+paso anterior
+
+Se debe redireccionar al usuario al proceso de digitar
+registros del proceso de inscripción
+
+11
+
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+Se debe evidenciar que tanto el proceso de
+y DetInscripciones
+inscripción como los detalles del proceso de
+inscripción contiene el estado de "PENDVALID"
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+En donde se debe indicar en "?"
+el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.3.1.2.Suite de Pruebas : Validar Inscripción
+
+Caso de Prueba EMPRESARIAL-13355: Validar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro).
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Se debe visualizar un mensaje que comenta "El proceso
+ha sido VALIDADO correctamente. Ahora requiere ser
+Una vez se finalice el
+ACTUALIZADO para continuar con la inscripción." con
+proceso de validación y si el los botones de "Regresar" y "Actualizar", este último
+proceso fue exitoso
+estará ubicado al lado izquiero del botón de "Regresar",
+de igual forma se debe visualizar el encabezado del
+proceso de inscripción
+
+2
+
+Si se selecciona el botón de Se debe redireccionar al usuario a la ventana
+"Regresar" relacionado al
+relacionada a la búsqueda de procesos que se
+paso anterior
+encuentran pendientes de validación sobre inscripciones
+
+3
+
+Se debe redireccionar al usuario a la venta sobre la
+Si se selecciona el botón de
+pantalla de carga (procesando) sobre la actualización,
+"Actualizar" relacionado al
+para posteriormente visualizar el resultado de dicho
+paso 1
+proceso
+Realiza la consulta por base
+de datos a la tabla
+"NomInscripciones" y
+"DetInscripciones"
+
+4
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de inscripción
+como los detalles del proceso de inscripción contiene el
+estado de "PENDACT"
+
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13356: Validar Inscripciones - Procesos Filtro de búsqueda [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Dar clic en el item "Validar
+Inscripción"
+
+Se visualiza en Pantalla:
+
+Validar Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+2
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+
+•
+3
+
+Dar clic en el item "Validar"
+
+¿Está seguro de Validar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+
+Se visualiza en Pantalla:
+Encabezado Proceso de Inscripción
+
+4
+
+Dar clic en el boton "Aceptar"
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+Nº Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+El proceso ha sido VALIDADO correctamente.
+Ahora requiere ser ACTUALIZADO para
+continuar con la inscripción.
+Realiza la consulta por base de
+datos a la tabla "NomInscripciones"
+y "DetInscripciones"
+5
+
+Se debe evidenciar que tanto el proceso de
+Use PSB_BcoDavivienda
+inscripción como los detalles del proceso de
+SELECT * FROM NomInscripciones inscripción contiene el estado de "PENDACT"
+WHERE nomID = '?' order by
+nom_fec_crea DESC
+
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by
+det_fec_crea DESC
+En donde se debe indicar en "?" el
+valor identificador del proceso de
+inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.3.1.3.Suite de Pruebas : Actualizar Inscripción
+
+Caso de Prueba EMPRESARIAL-13357: Actualizar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Si se realiza el proceso de
+actualización como pagado
+parcial
+
+Se debe visualizar un mensaje que comenta "Las
+cuentas Davivienda y Daviplata tendrán resultado de
+inmediato, las cuentas de otros bancos, la entidad
+destino debe aceptarlas primero. Si requiere hacer su
+pago en este momento en la opción de crear pago
+seleccione 'Valida Inscripción' la opción 'No'", de igual
+forma se visualiza el encabezado del proceso de
+inscripción y la sección de autorizaciones vinculadas al
+proceso. También se debe visualizar el botón de
+"Regresar"
+
+2
+
+Si se selecciona el botón de
+Regresar comentado en el
+paso anterior
+
+Se debe redireccionar al usuario a la ventana sobre la
+búsqueda de inscripciones que se encuentra
+pendientes de actualizar
+
+Realizar la consulta por bases
+de datos de la
+tabla AgendamientoPagos
+y TransaccionesPago
+Use PSB_BcoDavivienda
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+
+Se debe evidenciar que el registro relacionado a la
+tabla AgendamientoPagos corresponde a sch_estado
+"EJECUTADO" y sch_ind_proceso "VALIDACION".
+
+Use PSB_BcoDavivienda
+
+Se debe evidenciar que el registro relacionado a la
+tabla TransaccionesPago corresponde a trx_estado
+"EJECUTADA" y trx_estado_ejec "EJECUTADA".
+
+3
+
+select * from
+TransaccionesPago where
+schID = ? order by trx_orden
+ASC
+En donde en el simbolo de "?"
+corresponde al identificador del
+proceso
+Realizar la consulta en base
+de datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+4
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de inscripción
+como los detalles del proceso de inscripción contiene
+el estado resultante del proceso de actualización, es
+decir, en estado "OTROBANCO" antes de ser
+aceptada para las cuentas ACH y "EJECUTADA" para
+las cuentas DV.
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Nota: Una vez se acepte la inscripción por la entidad
+destino su estado deberá quedar en "ACEPTADO".
+(Para la presente prueba el estado debe quedar
+siempre en "OTROBANCO").
+
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13358: Actualizar Inscripción - Procesos Filtro de búsqueda [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones.
+
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Actualizar Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+1
+
+Dar clic en el item "Actualizar
+Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+2
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+3
+
+Dar clic en el item "Actualizar"
+
+•
+
+¿Está seguro de Actualizar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+Se visualiza en Pantalla:
+Encabezado Proceso de Inscripción
+4
+
+Dar clic en el boton "Aceptar"
+
+•
+•
+•
+•
+•
+
+Nombre Proceso
+Estado (Pagado Parcial)
+Nº Proceso
+Fecha de Creación
+Total de Registros
+
+•
+
+Registros Ingresados
+
+Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros bancos,
+la entidad destino debe aceptarlas primero. Si
+requiere hacer su pago en este momento en la
+opción de crear pago seleccione 'Valida Inscripción'
+la opción 'No'
+Autorizaciones Realizadas
+
+•
+•
+•
+
+NIT
+Nombre
+Fecha
+
+Realizar la consulta por bases de
+datos de la
+tabla AgendamientoPagos
+y TransaccionesPago
+Use PSB_BcoDavivienda
+
+5
+
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+
+Se debe evidenciar que el registro relacionado a la
+tabla AgendamientoPagos corresponde a
+sch_estado "EJECUTADO" y sch_ind_proceso
+"VALIDACION".
+
+Use PSB_BcoDavivienda
+
+Se debe evidenciar que el registro relacionado a la
+tabla TransaccionesPago corresponde a trx_estado
+select * from TransaccionesPago "EJECUTADA" y trx_estado_ejec "EJECUTADA".
+where schID = ? order by
+trx_orden ASC
+En donde en el simbolo de "?"
+corresponde al identificador del
+proceso
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+6
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado resultante del proceso
+de actualización, es decir, en estado
+"OTROBANCO" antes de ser aceptada para las
+cuentas ACH y "EJECUTADA" para las cuentas DV.
+
+Use PSB_BcoDavivienda
+Nota: Una vez se acepte la inscripción por la
+SELECT * FROM
+entidad destino su estado deberá quedar
+DetInscripciones WHERE nomID en "ACEPTADO". (Para la presente prueba el
+= '?' order by det_fec_crea DESC estado debe quedar siempre en "OTROBANCO").
+En donde se debe indicar en "?"
+el valor identificador del proceso
+de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.3.2.Suite de Pruebas : Inscripción numero 2 (Mismos datos de inscripción numero 1)
+1.3.2.1.Suite de Pruebas : Crear Inscripción
+
+Caso de Prueba EMPRESARIAL-13359: Crear Inscripción - Digitar Inscripciones [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones de tipo ACH Y DV (Tipo Producto o Servicio Destino -> Cuentas
+ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con
+las siguientes opciones:
+
+1
+
+Ingresar a Front Portal Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente Empresarial.
+2
+
+•
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Dar clic en el boton "Ingresar"
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+
+Ingresar los datos del Cliente Empresarial.
+3
+
+•
+
+Dar clic en el boton "Ingresar"
+
+Verificar el correcto ingreso al Front del
+Portal Empresarial:
+
+•
+
+Se muestran los servicios
+asignados al usuario ingresado.
+
+Se visualiza en Pantalla los siguientes
+item:
+
+•
+•
+4
+
+Seleccionar el Modulo de "Inscripciones"
+
+•
+•
+•
+•
+•
+•
+•
+
+Crear Inscripción
+Administrar Productos o
+Servicios Inscritos
+Reutilizar Inscripción
+Modificar Inscripción
+Eliminar Inscripción
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingrese Datos del Encabezado
+5
+
+Dar clic en el item "Crear Inscripción"
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+obligatorios.
+6
+
+•
+
+Dar clic en el boton "Continuar"
+
+Encabezado del Proceso Inscripción
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar
+Inscripciones" y "Regresar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+7
+
+Dar clic en el boton "Digitar Inscripciones"
+
+Detalle de la Inscripción
+
+•
+•
+
+Nº Proceso de Inscripción
+Nombre del Proceso de
+Inscripción
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Cantidad de Inscripciones
+Tipo de Identificación
+Nº de Identificación
+Nombres
+Apellidos
+Referencia
+Tipo Producto o Servicio
+Destino
+Nº Producto o Servicio
+Destino
+Banco Destino
+Valor Máximo de Pago $
+Dirección e-mail
+Nombre del Contacto
+Cargo del Contacto
+
+Botones "Continuar", "Limpiar" y
+"Regresar"
+
+8
+
+Ingresar y Seleccionar los datos
+obligatorios. Para el campo "Tipo Producto o
+Servicio Destino" -> Seleccionar la
+opción Cuentas ahorro/corrientes otros
+Se debe visualizar un mensaje con el
+bancos y Cuentas corriente/ahorro. Para el
+siguiente mensaje "Para continuar con la
+campo "Banco Destino" -> seleccionar
+inscripción de clic en validar" con 2
+cualquier tipo de banco en la lista
+botones, los cuales son "Cancelar" y
+desplegable.
+"Validar"
+
+•
+
+Dar clic en el boton "Continuar"
+
+Si se Selecciona el botón de "Cancelar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana sobre digitar los detalles sobre el
+proceso de inscripción.
+
+10
+
+Si se selecciona el botón de "Validar"
+relacionado a el mensaje del paso 8
+
+Se debe redireccionar al usuario a la
+ventana de carga (barra de procesando)
+sobre el proceso de validación de la
+inscripción, de igual forma se debe
+evidenciar el encabezado del proceso de
+incripción y el botón de "Regresar"
+
+11
+
+Si se seleccionar el botón de "Regresar"
+relacionado a el paso anterior
+
+Se debe redireccionar al usuario al
+proceso de digitar registros del proceso
+de inscripción
+
+9
+
+Realizar la consulta en base de datos sobre
+la tabla NomInscripciones
+y DetInscripciones
+
+12
+
+Use PSB_BcoDavivienda
+SELECT * FROM NomInscripciones
+WHERE nomID = '?' order by nom_fec_crea Se debe evidenciar que tanto el proceso
+de inscripción como los detalles del
+DESC
+proceso de inscripción contiene el estado
+de "PENDVALID"
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones WHERE
+nomID = '?' order by det_fec_crea DESC
+En donde se debe indicar en "?" el valor
+identificador del proceso de inscripción
+
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13360: Crear Inscripción - Archivo Plano [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba con un archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo Producto o
+Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza el formulario de ingreso con las
+siguientes opciones:
+
+1
+
+Ingresar a Front Portal
+Empresarial.
+
+•
+•
+•
+
+Tipo de identificación
+Numero de documento
+Numero de Cliente Empresarial
+
+Botones "Ingresar" y "Limpiar".
+Se visualiza en Pantalla:
+Token
+Ingresar los datos del Cliente
+Empresarial.
+2
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+•
+•
+
+Clave Personal
+Clave dinamica de su TOKEN
+
+Clave Virtual
+
+•
+
+Clave Virtual Empresarial
+
+Botones "Ingresar" y "Limpiar".
+
+Ingresar los datos del Cliente
+Empresarial.
+3
+
+•
+
+Dar clic en el boton
+"Ingresar"
+
+Verificar el correcto ingreso al Front del Portal
+Empresarial:
+
+•
+
+Se muestran los servicios asignados al
+usuario ingresado.
+
+Se visualiza en Pantalla los siguientes item:
+
+4
+
+Seleccionar el Modulo de
+"Inscripciones"
+
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Crear Inscripción
+Administrar Productos o Servicios Inscritos
+Reutilizar Inscripción
+Modificar Inscripción
+Eliminar Inscripción
+Validar Inscripciones
+Actualizar Inscripción
+Consultas
+Personalizar Plantillas
+
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+
+5
+
+Dar clic en el item "Crear
+Inscripción"
+
+Ingrese Datos del Encabezado
+
+•
+•
+•
+
+Nombre Proceso Inscripción
+Cantidad de Inscripciones
+Servicio Destino
+
+Boton "Continuar"
+Se visualiza en Pantalla:
+Ingresar Procesos de Inscripciones
+Ingresar y Seleccionar los datos
+Encabezado del Proceso Inscripción
+obligatorios.
+6
+
+•
+
+Dar clic en el boton
+"Continuar"
+
+•
+•
+•
+•
+
+Nombre Proceso Inscipción
+Nº Proceso
+Cantidad de Inscipciones
+Servicio Destino
+
+Botones "Importar Archivo", "Digitar Inscripciones" y
+"Regresar"
+
+7
+
+Dar clic en el botón de
+"Importar Archivo"
+
+Se debe visualizar la correcta importanción del
+archivo con los detalles de las inscripciones y se debe
+visualizar un mensaje que comenta "Para continuar
+con la inscripción de clic en validar" con 2 botones,
+los cuales son "Cancelar" y "Validar"
+
+8
+
+Si se Selecciona el botón de
+"Cancelar" relacionado a el
+mensaje del paso anterior.
+
+Se debe redireccionar al usuario a la ventana sobre
+digitar los detalles sobre el proceso de importación de
+archivo plano.
+
+9
+
+Si se selecciona el botón de
+"Validar" relacionado a el paso
+7
+
+Se debe redireccionar al usuario a la ventana de
+carga (barra de procesando) sobre el proceso de
+validación de la inscripción, de igual forma se debe
+
+evidenciar el encabezado del proceso de incripción y
+el botón de "Regresar"
+10
+
+Si se seleccionar el botón de
+"Regresar" relacionado a el
+paso anterior
+
+Se debe redireccionar al usuario al proceso de digitar
+registros del proceso de inscripción
+
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+11
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado de "PENDVALID"
+
+En donde se debe indicar en "?"
+el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.3.2.2.Suite de Pruebas : Validar Inscripción
+
+Caso de Prueba EMPRESARIAL-13361: Validar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Se debe visualizar un mensaje que comenta "El proceso
+ha sido VALIDADO correctamente. Ahora requiere ser
+Una vez se finalice el
+ACTUALIZADO para continuar con la inscripción." con
+proceso de validación y si el los botones de "Regresar" y "Actualizar", este último
+proceso fue exitoso
+estará ubicado al lado izquiero del botón de "Regresar",
+de igual forma se debe visualizar el encabezado del
+proceso de inscripción
+
+2
+
+Si se selecciona el botón de Se debe redireccionar al usuario a la ventana
+"Regresar" relacionado al
+relacionada a la búsqueda de procesos que se
+paso anterior
+encuentran pendientes de validación sobre inscripciones
+
+3
+
+Se debe redireccionar al usuario a la venta sobre la
+Si se selecciona el botón de
+pantalla de carga (procesando) sobre la actualización,
+"Actualizar" relacionado al
+para posteriormente visualizar el resultado de dicho
+paso 1
+proceso
+Realiza la consulta por base
+de datos a la tabla
+"NomInscripciones" y
+"DetInscripciones"
+
+4
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de inscripción
+como los detalles del proceso de inscripción contiene el
+estado de "PENDACT"
+
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13362: Validar Inscripciones - Procesos Filtro de búsqueda [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Validar Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+1
+
+Dar clic en el item "Validar
+Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+2
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+
+•
+3
+
+Dar clic en el item "Validar"
+
+¿Está seguro de Validar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+
+Se visualiza en Pantalla:
+4
+
+Dar clic en el boton "Aceptar"
+
+Encabezado Proceso de Inscripción
+
+•
+•
+•
+•
+•
+•
+
+Nombre Proceso de Inscripción
+Estado
+Nº Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+El proceso ha sido VALIDADO correctamente.
+Ahora requiere ser ACTUALIZADO para
+continuar con la inscripción.
+Realiza la consulta por base de
+datos a la tabla "NomInscripciones"
+y "DetInscripciones"
+Use PSB_BcoDavivienda
+SELECT * FROM NomInscripciones
+WHERE nomID = '?' order by
+nom_fec_crea DESC
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado de "PENDACT"
+Use PSB_BcoDavivienda
+SELECT * FROM DetInscripciones
+WHERE nomID = '?' order by
+det_fec_crea DESC
+
+5
+
+En donde se debe indicar en "?" el
+valor identificador del proceso de
+inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.3.2.3.Suite de Pruebas : Actualizar Inscripción
+
+Caso de Prueba EMPRESARIAL-13363: Actualizar Inscripción - Proceso Exitoso Directo [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+
+1
+
+Se realiza el proceso de
+actualización con el
+estado "Pagado Parcial"
+
+Se debe visualizar un mensaje que comenta "Las
+cuentas Davivienda y Daviplata tendrán resultado de
+inmediato, las cuentas de otros bancos, la entidad
+destino debe aceptarlas primero. Si requiere hacer su
+pago en este momento en la opción de crear pago
+seleccione 'Valida Inscripción' la opción 'No'", de igual
+forma se visualiza el encabezado del proceso de
+inscripción y la sección de autorizaciones vinculadas al
+proceso. También se debe visualizar el botón de
+"Regresar"
+
+2
+
+Si se selecciona el botón de
+Regresar comentado en el
+paso anterior
+
+Se debe redireccionar al usuario a la ventana sobre la
+búsqueda de inscripciones que se encuentra
+pendientes de actualizar
+
+Realizar la consulta por bases
+de datos de la
+tabla AgendamientoPagos
+y Inscripciones
+Use PSB_BcoDavivienda
+
+3
+
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+Use PSB_BcoDavivienda
+select * from Inscripciones
+order by inc_fec_modif desc
+
+Se debe evidenciar que el registro relacionado a la
+tabla AgendamientoPagos corresponde a sch_estado
+"EJECUTADO" y sch_ind_proceso "VALIDACION".
+No se debe evidenciar ningun registro relacionado al
+proceso creado anteriormente, ya que su actualización
+quedo en estado "Rechazado" dentro de la tabla
+Inscripciones.
+
+En donde en el simbolo de "?"
+corresponde al identificador
+del proceso
+Realizar la consulta en base
+de datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+
+4
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de inscripción
+como los detalles del proceso de inscripción contiene
+el estado resultante del proceso de actualización, es
+decir, en estado "RECHAZADO" con el motivo de
+rechazo: “Esta solicitud de inscripción se encuentra en
+proceso de respuesta”. Para las cuentas DV
+en "EJECUTADA".
+
+En donde se debe indicar en
+"?" el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+Caso de Prueba EMPRESARIAL-13364: Actualizar Inscripción - Procesos Filtro de búsqueda [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla:
+Actualizar Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+
+1
+
+Dar clic en el item "Actualizar
+Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+2
+
+Seleccionar el Filtro por Fecha
+"Entre y el..."
+
+Se visualiza en Pantalla en la parte inferior:
+
+•
+
+Dar clic en el boton
+"Buscar Procesos"
+
+Resultados de Búsqueda
+
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Fecha de Creación
+Nombre
+Estado
+Cantidad
+Acción
+
+Se visualiza en Pantalla un mensaje:
+3
+
+Dar clic en el item "Actualizar"
+
+•
+
+¿Está seguro de Actualizar el Proceso
+###### ?
+
+Botones "Aceptar" y "Cancelar"
+Se visualiza en Pantalla:
+Encabezado Proceso de Inscripción
+
+•
+•
+•
+•
+•
+•
+4
+
+Dar clic en el boton "Aceptar"
+
+Nombre Proceso
+Estado (Pagado Parcial)
+Nº Proceso
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+"Las cuentas Davivienda y Daviplata tendrán
+resultado de inmediato, las cuentas de otros bancos,
+la entidad destino debe aceptarlas primero. Si
+requiere hacer su pago en este momento en la opción
+de crear pago seleccione 'Valida Inscripción' la opción
+'No'"
+Autorizaciones Realizadas
+
+•
+•
+•
+
+NIT
+Nombre
+Fecha
+
+Realizar la consulta por bases
+de datos de la
+tabla AgendamientoPagos
+y Inscripciones
+Use PSB_BcoDavivienda
+5
+
+select * from
+AgendamientoPagos where
+sch_keyID = ?
+Use PSB_BcoDavivienda
+select * from Inscripciones
+order by inc_fec_modif desc
+
+Se debe evidenciar que el registro relacionado a la
+tabla AgendamientoPagos corresponde a sch_estado
+"EJECUTADO" y sch_ind_proceso "VALIDACION".
+No se debe evidenciar ningun registro relacionado al
+proceso creado anteriormente, ya que su
+actualización quedo en estado "Rechazado" dentro de
+la tabla Inscripciones.
+
+En donde en el simbolo de "?"
+corresponde al identificador del
+proceso
+Realizar la consulta en base de
+datos sobre la
+tabla NomInscripciones
+y DetInscripciones
+Use PSB_BcoDavivienda
+SELECT * FROM
+NomInscripciones WHERE
+nomID = '?' order by
+nom_fec_crea DESC
+
+6
+
+Use PSB_BcoDavivienda
+SELECT * FROM
+DetInscripciones WHERE
+nomID = '?' order by
+det_fec_crea DESC
+
+Se debe evidenciar que tanto el proceso de
+inscripción como los detalles del proceso de
+inscripción contiene el estado resultante del proceso
+de actualización, es decir, en estado "RECHAZADO"
+con el motivo de rechazo: “Esta solicitud de
+inscripción se encuentra en proceso de respuesta”.
+Para las cuentas DV en "EJECUTADA".
+
+En donde se debe indicar en "?"
+el valor identificador del
+proceso de inscripción
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+1.3.2.4.Suite de Pruebas : Consultas.
+
+Caso de Prueba EMPRESARIAL-13365: Procesos Inscripción. [Versión : 1]
+Autor:
+
+QA.Harold.Duarte
+
+Resumen:
+Realización de caso de prueba en módulo Inscripciones -> Ingresar los mismos datos de prueba que ya tenga
+otra inscripción y se encuentre en estado de "Enviado a otro banco".
+Precondiciones:
+1. Usuario Token o CV con acceso al Portal Empresarial (Front)
+2. Usuario con el servicio vigente y funcional de Inscripciones
+3. Usuario que posea empresas contratadas, vigentes y funcionales
+4. Tener data relacionada a procesos transaccionales sobre inscripciones
+5. Generar la prueba para Inscripciones o archivo plano que contenga Inscripciones de tipo ACH Y DV (Tipo
+Producto o Servicio Destino -> Cuentas ahorro/corrientes otros bancos - Cuentas corriente/ahorro)
+
+6. Generar la prueba con los mismos datos que se ingresaron en el proceso de incripcion anterior (Inscripcion
+numero 1) la inscripcion debe estar en estado "Enviado a otro banco"
+Nº:
+
+Pasos:
+
+Resultados Esperados:
+Se visualiza en Pantalla los siguientes
+item:
+
+1
+
+•
+•
+•
+
+Dar clic en el item "Consultas"
+
+Procesos Inscripción
+Estados de Inscripciones
+Productos o Servicio
+
+Se visualiza en Pantalla:
+Consulta Procesos de Inscripciones
+Buscar Procesos de Inscripciones
+2
+
+Dar clic en el item "Procesos Inscripción"
+
+•
+•
+•
+•
+•
+•
+
+Servicio Destino
+Fecha de
+Entre
+y el
+Estado
+Número Proceso
+
+Boton "Buscar Procesos"
+Se visualiza en Pantalla en la parte inferior:
+Resultados de Búsqueda
+Seleccionar el Filtro por Fecha "Entre
+el..."
+3
+
+•
+
+Dar clic en el boton "Buscar
+Procesos"
+
+y
+
+•
+•
+•
+•
+•
+•
+•
+
+Nº Proceso
+Servicio
+Fecha de Proceso
+Estado
+Nombre
+Cantidad
+Acción
+
+Se visualiza en Pantalla:
+Consulta Procesos de Inscripción
+Encabezado Proceso de Inscripción
+
+•
+4
+
+Dar clic en el item "Consultar
+Inscripciones" para el registro creado
+previamente con el estado rechazado.
+
+•
+•
+•
+•
+•
+
+Nombre Proceso de
+Inscripción
+Estado (Pagado Parcial)
+Nº Proceso de Inscripción
+Fecha de Creación
+Total de Registros
+Registros Ingresados
+
+Detalle Inscripciones Ingresadas
+
+•
+
+Nit Cliente
+
+•
+•
+•
+•
+
+Nombre
+Valor máximo
+e-mail
+Motivo Rechazo -> “Esta solicitud
+de inscripción se encuentra en
+proceso de respuesta”
+
+Botones "Guardar", "Imprimir Proceso" y
+"Regresar"
+Tipo de ejecución:
+
+Manual
+
+Duración estimada
+de la ejec. (min):
+Importancia:
+
+Media
+
+Requisitos
+
+Ninguno
+
+Keywords:
+
+Ninguno
+
+

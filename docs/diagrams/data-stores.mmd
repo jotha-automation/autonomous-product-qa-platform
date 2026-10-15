@@ -1,0 +1,59 @@
+flowchart TB
+  subgraph redis [Redis REDIS_URL]
+    subgraph tiers [MemoryTier TTL]
+      W[WORKING — no expiry<br/>active run artifacts]
+      S[SHORT_TERM — 24h<br/>pipeline_status run_events]
+      L[LONG_TERM — 7d<br/>pipeline_summary checkpoint]
+      E[EPHEMERAL — 1h]
+    end
+
+    subgraph keys [Key patterns]
+      K1["run:{id}:documents"]
+      K2["run:{id}:interpreted_intake"]
+      K3["run:{id}:intake_index"]
+      K4["pipeline_status:{id}"]
+      K5["pipeline_summary:{id}"]
+      K6["pipeline_checkpoint:{id}"]
+      K7["run_events:{id}"]
+      K8["run_hints:{id}"]
+      K9["run_secret:{id}:*"]
+    end
+  end
+
+  subgraph disk [Filesystem artifacts]
+    G1["generated-test-projects/{project_id}/"]
+    G2[".../tests/ pages/ fixtures/"]
+    G3[".../aptp-artifacts/{run_id}/scripts/"]
+    G4[".../aptp-artifacts/{run_id}/evidence/"]
+    G5[".../execution-report.pdf"]
+    G6[".../reports.json markdown reports"]
+  end
+
+  subgraph secrets [Secrets never in reports]
+    RS[RunSecretStore<br/>login_user.cliente etc]
+    KV[Azure Key Vault optional<br/>SecretsService]
+    RS --> K9
+    TAR[TestAssetResolver writes] --> RS
+    Gen[PlaywrightGenerator .env] --> RS
+    Exec[ExecutionAgent env inject] --> RS
+  end
+
+  subgraph postgres [Postgres]
+    IR[intake_registry<br/>file fingerprints changelog]
+    KC[KnowledgeChunk + pgvector<br/>requirement embeddings]
+  end
+
+  W --> K1
+  W --> K2
+  W --> K3
+  S --> K4
+  S --> K7
+  S --> K8
+  L --> K5
+  L --> K6
+  S --> K9
+
+  Orch[Orchestrator] --> tiers
+  Orch --> disk
+  Sync[Drive sync] --> IR
+  Req[RequirementsAnalyst] --> KC

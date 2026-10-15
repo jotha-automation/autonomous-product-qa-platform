@@ -1,0 +1,53 @@
+flowchart TB
+  subgraph operators [Operators]
+    QA[QA Engineer / Product Owner]
+  end
+
+  subgraph clients [Client applications]
+    Front[APTP-front<br/>React + SSE]
+    API[API clients / curl]
+  end
+
+  subgraph aptp_backend [autonomous-product-qa-platform]
+    API_SRV[FastAPI :8000<br/>src/main.py]
+    Orch[ProductQAOrchestrator<br/>engine.py]
+    Agents[Agent layer<br/>src/agents/*]
+  end
+
+  subgraph aut [Application under test]
+    Bank[bank-qa-portal<br/>Portal Empresarial mock]
+    Other[Any target URL]
+  end
+
+  subgraph intake_src [Intake sources]
+    Drive[Google Drive<br/>project folders]
+    Upload[POST /documents/upload]
+    Local[Local fixture trees]
+  end
+
+  subgraph ai [AI & knowledge]
+    Azure[Azure OpenAI<br/>chat + embeddings]
+    PG[(Postgres + pgvector)]
+  end
+
+  subgraph runtime [Runtime infrastructure]
+    Redis[(Redis<br/>memory + events)]
+    PW[Playwright<br/>npx in container]
+  end
+
+  QA --> Front
+  QA --> Drive
+  Front -->|REST SSE X-Api-Key| API_SRV
+  API --> API_SRV
+  API_SRV --> Orch
+  Orch --> Agents
+  Agents --> Azure
+  Agents --> Redis
+  Agents --> PG
+  Drive --> API_SRV
+  Upload --> API_SRV
+  Local --> API_SRV
+  Agents --> PW
+  PW --> Bank
+  PW --> Other
+  Front -.->|runtime-hints target_url| API_SRV

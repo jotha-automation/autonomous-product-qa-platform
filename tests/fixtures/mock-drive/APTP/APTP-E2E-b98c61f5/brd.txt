@@ -1,0 +1,10 @@
+# Business Requirements Document
+Version: 1.0
+Author: QA Team
+
+## Overview
+The system shall allow users to authenticate securely.
+
+## Requirements
+REQ-001: User login with email and password
+REQ-002: Password minimum 8 characters

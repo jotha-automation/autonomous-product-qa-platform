@@ -1,0 +1,11 @@
+# Product Requirements Document
+Version: 2.0
+Release: R1
+
+## Features
+- Authentication module
+- Dashboard with KPIs
+
+## Product Requirements
+PRD-001: Login page with SSO option
+PRD-002: Dashboard loads within 3 seconds

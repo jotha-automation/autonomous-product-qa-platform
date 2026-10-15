@@ -1,0 +1,47 @@
+import { defineConfig, devices } from '@playwright/test';
+import { existsSync, readFileSync } from 'fs';
+import { resolve } from 'path';
+
+function loadEnvFile(filename: string): void {
+  const path = resolve(__dirname, filename);
+  if (!existsSync(path)) return;
+  try {
+    for (const line of readFileSync(path, 'utf8').split('\n')) {
+      const match = line.match(/^([^#=\s]+)\s*=\s*(.*)$/);
+      if (match && !process.env[match[1]]) {
+        process.env[match[1]] = match[2].trim();
+      }
+    }
+  } catch {
+    // optional env file
+  }
+}
+
+loadEnvFile('.env');
+loadEnvFile('.env.example');
+
+export default defineConfig({
+  testDir: './tests',
+  fullyParallel: false,
+  workers: 1,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 1 : 1,
+  timeout: 90000,
+  reporter: [
+    ['html', { outputFolder: 'reports/html', open: 'never' }],
+    ['json', { outputFile: 'reports/results.json' }],
+    ['list'],
+    ['./fixtures/video-evidence-reporter.ts'],
+  ],
+  use: {
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'on',
+    baseURL: process.env.BASE_URL || 'https://bank-portal.up.railway.app',
+    // Fail fast on missing locators instead of hanging the full test timeout.
+    // A wrong/absent selector throws in ~15s rather than blocking 90s.
+    actionTimeout: Number(process.env.APTP_ACTION_TIMEOUT_MS || 15000),
+    navigationTimeout: Number(process.env.APTP_NAVIGATION_TIMEOUT_MS || 30000),
+  },
+  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+});

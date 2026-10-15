@@ -1,0 +1,27 @@
+sequenceDiagram
+  autonumber
+  participant Op as Operator / APTP-front
+  participant API as POST runtime-hints
+  participant DM as drive_manager
+  participant Hints as run_hints Redis
+  participant CP as pipeline_checkpoint
+  participant Orch as ProductQAOrchestrator
+  participant Gate as target_url.py
+
+  Orch->>Gate: intake_has_target_url after indexing
+  alt URL found in PDF metadata or hints
+    Gate-->>Orch: true
+    Orch->>Orch: intake_interpretation continues
+  else URL missing
+    Gate-->>Orch: false
+    Orch->>CP: save_checkpoint awaiting_target_url
+    Orch-->>Op: status awaiting_input<br/>stage awaiting_target_url
+    Note over Op: TargetUrlRequiredGate UI
+    Op->>API: target_url + run_id
+    API->>DM: provide_target_url_and_resume
+    DM->>Hints: set_run_hints target_url
+    DM->>CP: load_checkpoint + clear
+    DM->>Orch: run_phase1 resume_from intake_interpretation
+    Orch->>Orch: skip guardrails indexing gate
+    Orch->>Orch: normalize_intake_documents
+  end

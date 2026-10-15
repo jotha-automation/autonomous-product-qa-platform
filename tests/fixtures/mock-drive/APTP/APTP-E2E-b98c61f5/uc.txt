@@ -1,0 +1,9 @@
+USE CASE DOCUMENT
+UC-001: User Login
+Actor: End User
+Precondition: User has valid account
+Main flow: Enter credentials, submit, view dashboard
+
+UC-002: View Dashboard
+Actor: End User
+Main flow: Navigate to dashboard after login

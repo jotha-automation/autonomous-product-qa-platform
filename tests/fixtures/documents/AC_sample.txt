@@ -1,0 +1,4 @@
+# Acceptance Criteria
+
+## AC-001 Login success
+Given valid credentials, when the user submits the form, then the dashboard is displayed.

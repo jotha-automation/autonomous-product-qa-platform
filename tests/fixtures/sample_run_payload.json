@@ -1,0 +1,10 @@
+{
+  "project_id": "demo",
+  "mode": "phase1",
+  "document_paths": [
+    "tests/fixtures/documents/brd.txt",
+    "tests/fixtures/documents/prd.txt",
+    "tests/fixtures/documents/uc.txt",
+    "tests/fixtures/documents/ac.txt"
+  ]
+}

@@ -1,0 +1,43 @@
+flowchart TB
+  subgraph folder [Drive folder example APTP-real-pdf-intake]
+    PDF[pruebas-inc1353166.pdf]
+    XLSX[test-credentials.xlsx]
+  end
+
+  subgraph classify [classify_file_purpose]
+    PDF --> Role1[PRIMARY_SPEC]
+    XLSX --> Role2[ASSET_BUNDLE]
+  end
+
+  subgraph pdf_meta [PDF metadata]
+    Role1 --> P1[purpose: QA test specification]
+    Role1 --> U1[usage: obligation_extraction]
+    Role1 --> U2[usage: test_design]
+    Role1 --> U3[usage: playwright_scenario_planning]
+  end
+
+  subgraph xlsx_meta [XLSX metadata]
+    Role2 --> P2[purpose: credentials + execution data]
+    Role2 --> A1[asset_types: credential]
+    Role2 --> A2[asset_types: transfer_test_data]
+    Role2 --> A3[asset_types: destination_accounts]
+    Role2 --> U4[usage: playwright_login]
+    Role2 --> U5[usage: inscription_scenarios]
+  end
+
+  subgraph link [Catalog linkage]
+    Cat[build_intake_catalog]
+    PDF --> Cat
+    XLSX --> Cat
+    Cat --> Link[linked_primary_id → PDF file_id]
+  end
+
+  subgraph sheets [XLSX sheet routing asset_bundle_parser]
+    XLSX --> S1[Usuarios → login_user]
+    XLSX --> S2[Data → transfer_scenario rows]
+    XLSX --> S3[Destinos → destination_accounts]
+    XLSX --> S4[Datos → tabular_data]
+  end
+
+  S1 --> Store[RunSecretStore<br/>login_user.cliente documento clave token]
+  Store --> PW[Playwright bank-portal-auth.ts]

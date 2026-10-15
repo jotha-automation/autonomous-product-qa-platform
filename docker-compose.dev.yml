@@ -1,0 +1,15 @@
+# Dev overlay — hot reload + mount source code
+# Usage: make up-dev  (requires validated .env)
+
+services:
+  api:
+    environment:
+      APTP_UVICORN_RELOAD: "true"
+      APTP_WEB_WORKERS: "1"
+      APTP_SKIP_PLAYWRIGHT_INSTALL: "true"
+      PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+    volumes:
+      - ./src:/app/src
+      - ./mcp:/app/mcp
+      - ./deployment:/app/deployment
+      - ./generated-test-projects:/app/generated-test-projects

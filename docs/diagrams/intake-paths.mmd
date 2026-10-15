@@ -1,0 +1,50 @@
+flowchart TD
+  Docs[documents in folder] --> Profile[detect_intake_profile<br/>intake_mode.py]
+
+  Profile --> Strategy{primary_strategy}
+
+  Strategy -->|portfolio| PortPath[Portfolio path]
+  Strategy -->|interpretation| PDFPath[PDF-first path]
+  Strategy -->|mixed| MixedPath[Mixed path]
+
+  subgraph portfolio [Portfolio path — structured folders]
+    P1[01-Business-Requirements BRD]
+    P2[02-Product-Requirements PRD]
+    P3[04-Use-Cases UC]
+    P4[05-Acceptance-Criteria AC]
+    P5[combined PDF optional<br/>regex_split via combined.py]
+    P1 --> PReady[ReadinessAgent<br/>file type check]
+    P2 --> PReady
+    P3 --> PReady
+    P4 --> PReady
+    P5 --> PReady
+  end
+
+  subgraph pdffirst [PDF-first path — TestLink / INC]
+    PDF[Single PDF PRIMARY_SPEC<br/>Caso de Prueba EMPRESARIAL-xx]
+    XLSX[ASSET_BUNDLE xlsx<br/>Usuarios Data Destinos]
+    Chunk[qa_spec_chunker<br/>32+ test cases]
+    Virt[IntakeInterpretationAgent<br/>synthetic BRD PRD UC AC]
+    Obl[ClientIntakeInterpreter<br/>obligations + tiers]
+    PDF --> Chunk
+    PDF --> Virt
+    Chunk --> Obl
+    XLSX --> Assets[TestAssetResolver<br/>login_user secrets]
+    Obl --> CReady[ReadinessAgent<br/>obligations + target_url]
+    Assets --> CReady
+  end
+
+  subgraph mixed [Mixed path]
+    M1[Some typed docs + unstructured PDF]
+    M2[AI interpretation fills gaps]
+    M3[Content interpretation if QA spec detected]
+    M1 --> M2 --> M3
+  end
+
+  PortPath --> portfolio
+  PDFPath --> pdffirst
+  MixedPath --> mixed
+
+  PReady --> Plan[Phase 1 planning]
+  CReady --> Plan
+  M3 --> Plan

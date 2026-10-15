@@ -1,0 +1,4 @@
+ACCEPTANCE CRITERIA
+AC-001: Given valid credentials, when user logs in, then dashboard is shown
+AC-002: Given invalid password, when user logs in, then error message appears
+AC-003: Dashboard displays at least 3 KPI widgets

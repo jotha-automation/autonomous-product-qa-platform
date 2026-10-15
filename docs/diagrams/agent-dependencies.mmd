@@ -1,0 +1,54 @@
+flowchart TB
+  Orch[ProductQAOrchestrator<br/>engine.py]
+
+  subgraph intake_agents [Intake agents]
+    Guard[IntakeGuardrailsAgent]
+    II[IntakeInterpretationAgent]
+    CII[ClientIntakeInterpreterAgent]
+    QOE[QaObligationExtractorAgent]
+    TAR[TestAssetResolverAgent]
+  end
+
+  subgraph phase1_agents [Phase 1 agents]
+    Ready[ReadinessAgent]
+    Req[RequirementsAnalystAgent]
+    Cov[CoverageAgent]
+    TD[TestDesignAgent]
+    Tr[TraceabilityAgent]
+    Risk[RiskAssessmentAgent]
+    Know[KnowledgeRetrievalAgent]
+    ExecRpt[ExecutiveReportingAgent]
+  end
+
+  subgraph auto_agents [Automation agents]
+    PWArch[PlaywrightArchitectAgent]
+    PWGen[PlaywrightGeneratorAgent]
+    Exec[ExecutionAgent]
+    RCA[FailureRCAAgent]
+    Heal[SelfHealingAgent]
+    Defect[DefectDetectionAgent]
+    Excel[ExcelDeliverableAgent]
+  end
+
+  Orch --> Guard
+  Guard --> II
+  Guard --> CII
+  CII --> QOE
+  QOE --> TAR
+  TAR --> Ready
+  Ready --> Req --> Cov --> TD --> Tr --> Risk --> Know
+  Know --> ExecRpt
+  Know --> PWArch
+  PWArch --> PWGen --> Exec
+  Exec --> RCA --> Heal
+  Heal --> Exec
+  Exec --> Defect --> Excel --> ExecRpt
+
+  CII -.->|MCP explore| MCP[mcp/aptp_intake_tools]
+  TAR -.->|parse sheets| ABP[asset_bundle_parser]
+  CII -.->|chunk PDF| Chunk[qa_spec_chunker]
+  PWArch -.->|bank portal| BP[bank_portal + obligation_steps]
+  PWGen -.->|templates| Tpl[templates/playwright]
+
+  Req -->|index| PG[(pgvector)]
+  Know -->|retrieve| PG

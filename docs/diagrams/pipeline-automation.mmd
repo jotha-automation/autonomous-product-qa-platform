@@ -1,0 +1,53 @@
+flowchart TB
+  subgraph inputs [Inputs from Phase 1]
+    Scenarios[functional_scenarios]
+    Obligations[interpreted_intake.obligations]
+    Bindings[asset_bindings]
+    URL[target_url]
+  end
+
+  subgraph phase2 [Phase 2 — Playwright generation]
+    Arch[PlaywrightArchitectAgent<br/>POM test_plan]
+    Gen[PlaywrightGeneratorAgent<br/>templates + LLM]
+    Proj[generated-test-projects/project_id/<br/>tests pages fixtures .env]
+    Snap[snapshot_generated_scripts<br/>aptp-artifacts/scripts]
+  end
+
+  subgraph phase3 [Phase 3 — Execution]
+    Exec[ExecutionAgent<br/>npm install + npx playwright]
+    AUT[Application under test]
+    PWRep[reports/results.json<br/>traces videos]
+  end
+
+  subgraph phase4 [Phase 4 — Failure analysis]
+    RCA[FailureRCAAgent]
+    Heal[SelfHealingAgent<br/>pages/ locators only]
+    ReExec[reexecution loop]
+  end
+
+  subgraph phase5 [Phase 5 — Deliverables]
+    Defect[DefectDetectionAgent]
+    Excel[ExcelDeliverableAgent]
+    Evid[evidence_collector<br/>screenshots manifest PDF]
+    Rpt[ExecutiveReportingAgent]
+  end
+
+  Scenarios --> Arch
+  Obligations --> Arch
+  Bindings --> Arch
+  URL --> Gen
+  Arch --> Gen --> Proj
+  Gen --> Snap
+  Proj --> Exec
+  URL --> Exec
+  Exec --> AUT
+  Exec --> PWRep
+  PWRep -->|failures| RCA
+  RCA --> Heal --> ReExec --> Exec
+  Exec --> Defect
+  RCA --> Defect
+  Heal --> Defect
+  Defect --> Excel
+  Exec --> Evid
+  Evid --> Rpt
+  Excel --> Rpt

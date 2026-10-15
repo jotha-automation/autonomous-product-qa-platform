@@ -1,0 +1,72 @@
+flowchart TB
+  subgraph external [External]
+    Drive[Google Drive]
+    AzureOAI[Azure OpenAI]
+    AUT[Target application<br/>bank-qa-portal / custom URL]
+    ASB[Azure Service Bus<br/>optional events]
+  end
+
+  subgraph api [API layer]
+    Routes[FastAPI routers<br/>runs drive intake webhooks]
+    Orch[ProductQAOrchestrator<br/>src/orchestrator/engine.py]
+  end
+
+  subgraph intake_layer [Intake layer]
+    Disc[discovery.py]
+    Parser[DocumentParser]
+    Catalog[file_catalog.py]
+    Norm[normalization.py]
+    Chunk[qa_spec_chunker.py]
+    Registry[intake_registry<br/>Postgres]
+  end
+
+  subgraph agents [Agents]
+    Guard[IntakeGuardrails]
+    II[IntakeInterpretation]
+    CII[ClientIntakeInterpreter]
+    QOE[QaObligationExtractor]
+    TAR[TestAssetResolver]
+    Plan[Phase 1 agents]
+    Auto[Automation agents]
+  end
+
+  subgraph memory [Memory & secrets]
+    Redis[(Redis<br/>EnhancedSharedMemory)]
+    Bus[RunMemoryBus<br/>memory_bus.py]
+    Secrets[RunSecretStore]
+  end
+
+  subgraph knowledge [Knowledge]
+    PG[(Postgres)]
+    Vec[pgvector chunks]
+  end
+
+  subgraph artifacts [Artifacts on disk]
+    GenProj[generated-test-projects/]
+    AptpArt[aptp-artifacts/run_id/]
+  end
+
+  Drive --> Disc
+  Disc --> Registry
+  Disc --> Parser
+  Parser --> Catalog
+  Catalog --> Norm
+  Chunk --> CII
+  Routes --> Orch
+  Orch --> Guard
+  Orch --> agents
+  Norm --> II
+  Norm --> CII
+  CII --> QOE
+  QOE --> TAR
+  TAR --> Secrets
+  agents --> AzureOAI
+  agents --> Bus
+  Bus --> Redis
+  Orch --> Redis
+  Plan --> PG
+  Plan --> Vec
+  Auto --> GenProj
+  Auto --> AUT
+  Auto --> AptpArt
+  Orch -.-> ASB

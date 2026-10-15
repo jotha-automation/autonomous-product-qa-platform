@@ -1,0 +1,36 @@
+flowchart TB
+  subgraph local [Local development make up-dev]
+    Docker[Docker Compose]
+    API[APTP API :8000]
+    RedisL[(Redis)]
+    PGL[(Postgres + pgvector)]
+    FrontL[APTP-front :5173]
+    BankL[bank-qa-portal :8080]
+    Docker --> API
+    Docker --> RedisL
+    Docker --> PGL
+    FrontL --> API
+    API --> RedisL
+    API --> PGL
+    API -->|PLAYWRIGHT_PROJECTS_ROOT| PWLocal[generated-test-projects/]
+    PWLocal --> BankL
+  end
+
+  subgraph railway [Railway deployment]
+    RAPI[APTP backend service]
+    RBank[bank-qa-portal service]
+    RRedis[(Redis addon)]
+    RDB[(Postgres addon)]
+    RAPI --> RRedis
+    RAPI --> RDB
+    RAPI -->|target_url| RBank
+  end
+
+  subgraph external [External services]
+    Drive[Google Drive API]
+    Azure[Azure OpenAI]
+    RAPI --> Drive
+    RAPI --> Azure
+    API --> Drive
+    API --> Azure
+  end

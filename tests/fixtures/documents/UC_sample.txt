@@ -1,0 +1,5 @@
+# Use Cases
+
+## UC-001 Login
+Actor: End User
+Main flow: User enters credentials and accesses dashboard.

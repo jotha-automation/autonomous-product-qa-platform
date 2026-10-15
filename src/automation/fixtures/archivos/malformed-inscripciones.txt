@@ -1,0 +1,2 @@
+BADLINE|only|three|fields
+NIT|8006007002

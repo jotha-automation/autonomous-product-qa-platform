@@ -1,0 +1,1 @@
+deployment/docker/*.sh text eol=lf executable

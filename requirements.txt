@@ -1,0 +1,29 @@
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+redis>=5.0.0
+openai>=1.12.0
+httpx>=0.26.0
+azure-servicebus>=7.11.0
+asyncpg>=0.29.0
+psycopg[binary]>=3.1.18
+sqlalchemy[asyncio]>=2.0.0
+alembic>=1.13.0
+pgvector>=0.2.0
+google-api-python-client>=2.100.0
+google-auth>=2.23.0
+pymupdf>=1.23.0
+pdfplumber>=0.10.0
+python-docx>=1.1.0
+openpyxl>=3.1.0
+Pillow>=10.0.0
+jinja2>=3.1.0
+python-multipart>=0.0.6
+# PyPI tops out at 1.61.0; npm/Docker image pin 1.61.1 (src/playwright_version.py) — browsers come
+# from the image. Range allows 1.61.1 without drifting to 1.62.x; stays pip-installable today.
+playwright>=1.61.0,<1.62.0
+cryptography>=42.0.0
+# Optional — required only when APTP_SECRETS_PROVIDER=azure_key_vault
+azure-identity>=1.15.0
+azure-keyvault-secrets>=4.8.0

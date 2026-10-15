@@ -1,0 +1,49 @@
+flowchart TB
+  subgraph drive [Google Drive APTP-real-pdf-intake]
+    PDF[pruebas-inc1353166.pdf<br/>PRIMARY_SPEC]
+    XLSX[test-credentials.xlsx<br/>ASSET_BUNDLE]
+  end
+
+  subgraph aptp [APTP pipeline]
+    Sync[Drive sync + file catalog]
+    Intake[Intake interpretation<br/>32 EMPRESARIAL obligations]
+    Assets[login_user from Usuarios sheet]
+    Gate{target_url?}
+    Plan[PlaywrightArchitect + Generator<br/>bank-portal-auth]
+    Exec[Playwright execution]
+    Evid[evidence PNG + PDF report]
+  end
+
+  subgraph aut [bank-qa-portal AUT]
+    Login[login-cliente documento clave token]
+    Crear[crear-digitar / crear-importar-archivo]
+    Validar[validar-page]
+    Actualizar[actualizar-page]
+    Consultas[consultas-page buscar-procesos]
+  end
+
+  subgraph operator [Operator APTP-front]
+    URL[Enter Railway URL if missing]
+    View[View QA results + evidence]
+  end
+
+  PDF --> Sync
+  XLSX --> Sync
+  Sync --> Intake
+  Sync --> Assets
+  Intake --> Gate
+  Gate -->|pause| URL
+  URL --> Plan
+  Gate -->|URL in hints| Plan
+  Assets --> Plan
+  Plan --> Exec
+  Exec --> Login
+  Exec --> Crear
+  Exec --> Validar
+  Exec --> Actualizar
+  Exec --> Consultas
+  Exec --> Evid
+  Evid --> View
+
+  Note1[Manual tier cases<br/>días hábiles excluded from Playwright]
+  Intake -.-> Note1

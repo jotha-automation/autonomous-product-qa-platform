@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: ruff check src tests || true
+      - name: Unit tests
+        env:
+          APTP_USE_MOCK_LLM: 'true'
+          APTP_MOCK_PLAYWRIGHT_EXECUTION: 'true'
+          APTP_SKIP_PLAYWRIGHT_INSTALL: 'true'
+          PYTHONPATH: .
+        run: pytest tests/ -v --tb=short

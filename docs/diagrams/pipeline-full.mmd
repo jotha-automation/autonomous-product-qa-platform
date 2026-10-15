@@ -1,0 +1,46 @@
+flowchart TD
+  Start([POST /api/v1/runs]) --> Init[initialized]
+  Init --> Intake[intake<br/>load documents]
+  Intake --> Guard[intake_guardrails<br/>IntakeGuardrailsAgent]
+  Guard -->|rejected| Partial[completed partial]
+  Guard --> Index[intake_indexing<br/>build_intake_index]
+
+  Index --> URLGate{target_url<br/>in intake?}
+  URLGate -->|no| Pause[awaiting_target_url<br/>checkpoint saved]
+  Pause -.->|runtime-hints resume| Interpret
+  URLGate -->|yes| Interpret[intake_interpretation<br/>normalize_intake_documents]
+
+  Interpret --> Client{interpreted_intake?}
+  Client -->|yes| CII[client_intake_interpretation<br/>QaObligationExtractor]
+  CII --> Assets[test_asset_resolution<br/>TestAssetResolver]
+  Client -->|no| Ready
+  Assets --> Ready[readiness<br/>ReadinessAgent]
+
+  Ready -->|block_run| Partial
+  Ready --> Req[requirements<br/>RequirementsAnalyst]
+  Req --> Cov[coverage]
+  Cov --> TD[test_design]
+  TD --> Tr[traceability]
+  Tr --> Risk[risk_assessment]
+  Risk --> Know[knowledge_retrieval]
+
+  Know --> Mode{mode?}
+  Mode -->|phase1| Rpt1[executive_reporting]
+  Rpt1 --> Done[completed]
+
+  Mode -->|full| PWArch[playwright_architect]
+  PWArch --> PWGen[playwright_generator]
+  PWGen --> Loop{execution loop}
+
+  Loop --> Exec[execution<br/>npx playwright test]
+  Exec -->|failures| RCA[failure_rca]
+  RCA --> Heal[self_healing]
+  Heal -->|healed| ReExec[reexecution]
+  ReExec --> Exec
+  Exec -->|max attempts or pass| Defect[defect_detection]
+  Defect --> Excel[excel_deliverable]
+  Excel --> Evid[collect_and_persist_evidence]
+  Evid --> Rpt2[executive_reporting]
+  Rpt2 --> Done
+
+  Exec -->|fatal| Failed[failed]

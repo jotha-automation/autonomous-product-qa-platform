@@ -1,0 +1,32 @@
+flowchart LR
+  subgraph intake_prep [Intake preparation]
+    Docs[Documents<br/>Drive or upload]
+    Cat[File catalog<br/>roles + links]
+    Norm[Normalization<br/>virtual BRD PRD UC AC]
+    Obl[Obligations<br/>TestLink / AC]
+    Assets[Asset bindings<br/>XLSX credentials]
+  end
+
+  subgraph phase1 [Phase 1 — Product intelligence]
+    Ready[ReadinessAgent<br/>semantic gaps]
+    Req[RequirementsAnalystAgent]
+    Cov[CoverageAgent]
+    TD[TestDesignAgent<br/>functional_scenarios]
+    Tr[TraceabilityAgent]
+    Risk[RiskAssessmentAgent]
+    Know[KnowledgeRetrievalAgent<br/>pgvector]
+    Rpt[ExecutiveReportingAgent]
+  end
+
+  subgraph outputs [Phase 1 outputs]
+    Reports[QA reports JSON MD]
+    Matrix[Traceability matrix]
+    Scenarios[functional_scenarios]
+  end
+
+  Docs --> Cat --> Norm --> Obl --> Assets
+  Assets --> Ready
+  Ready --> Req --> Cov --> TD --> Tr --> Risk --> Know --> Rpt
+  Rpt --> Reports
+  Tr --> Matrix
+  TD --> Scenarios

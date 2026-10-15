@@ -1,0 +1,47 @@
+sequenceDiagram
+  autonumber
+  participant Op as Operator
+  participant Front as APTP-front
+  participant API as FastAPI
+  participant Orch as Orchestrator
+  participant Agents as Agents
+  participant Redis as Redis
+  participant AUT as Target app
+  participant Disk as Artifacts disk
+
+  Op->>Front: Create project / Process Drive folder
+  Front->>API: POST /drive/projects/id/process
+  API->>Orch: run payload mode=full
+  Orch->>Redis: scope run:run_id
+
+  loop Phase 1
+    Orch->>Agents: intake → readiness → requirements → …
+    Agents->>Redis: write artifacts
+    Agents-->>Orch: stage updates
+    Orch-->>Front: SSE pipeline events
+  end
+
+  opt missing target_url
+    Orch-->>Front: awaiting_target_url
+    Op->>Front: Enter AUT URL
+    Front->>API: POST runtime-hints
+    API->>Orch: resume intake_interpretation
+  end
+
+  loop Automation max attempts
+    Orch->>Agents: playwright_architect → generator
+    Agents->>Disk: generated-test-projects/
+    Orch->>Agents: execution npx playwright
+    Agents->>AUT: browser tests
+    AUT-->>Agents: HTTP responses
+    Agents->>Disk: evidence/ reports/
+    alt failures
+      Orch->>Agents: failure_rca → self_healing
+      Agents->>Disk: patch pages/
+    end
+  end
+
+  Orch->>Agents: defect_detection excel_deliverable
+  Orch->>Disk: aptp-artifacts/run_id/
+  Orch-->>Front: completed + reports
+  Op->>Front: Download artifacts / view evidence PDF
