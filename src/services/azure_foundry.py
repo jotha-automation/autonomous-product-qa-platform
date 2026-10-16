@@ -6,9 +6,29 @@ import time
 from typing import Optional, Dict, Any, Tuple
 from urllib.parse import urlparse
 
+import httpx
 from openai import AzureOpenAI, OpenAI
 
 logger = logging.getLogger("azure_foundry")
+
+
+def _ssl_verification_config() -> str | bool:
+    ca_bundle = (os.getenv("AZURE_OPENAI_CA_BUNDLE") or "").strip()
+    if ca_bundle:
+        return ca_bundle
+    if os.getenv("AZURE_OPENAI_VERIFY_SSL", "true").lower() in {"0", "false", "no"}:
+        logger.warning("AZURE_OPENAI_VERIFY_SSL=false — TLS verification disabled for local Azure/LiteLLM calls")
+        return False
+    return True
+
+
+def _build_http_client() -> httpx.Client:
+    return httpx.Client(verify=_ssl_verification_config())
+
+
+def _deployment_omits_temperature(deployment: str) -> bool:
+    dep = (deployment or "").strip().lower()
+    return dep.startswith("gpt-5") or "gpt-5" in dep
 
 
 def normalize_azure_endpoint(endpoint: str) -> str:
@@ -63,7 +83,7 @@ def create_foundry_openai_client():
     if not endpoint:
         raise ValueError("AZURE_OPENAI_ENDPOINT is not set")
     base_url = os.getenv("AZURE_OPENAI_BASE_URL") or normalize_azure_endpoint(endpoint)
-    return OpenAI(base_url=base_url, api_key=api_key)
+    return OpenAI(base_url=base_url, api_key=api_key, http_client=_build_http_client())
 
 
 def use_legacy_azure_client() -> bool:
@@ -119,6 +139,7 @@ class AzureFoundryClient:
                 api_key=self.api_key,
                 azure_endpoint=self.endpoint.rstrip("/"),
                 api_version=os.getenv("AZURE_OPENAI_API_VERSION", "2024-10-21"),
+                http_client=_build_http_client(),
             )
             self._api_mode = "legacy"
             self.base_url = self.endpoint
@@ -130,6 +151,7 @@ class AzureFoundryClient:
             self.client = OpenAI(
                 base_url=self.base_url,
                 api_key=self.api_key,
+                http_client=_build_http_client(),
             )
             self._api_mode = "foundry-v1"
 
@@ -281,17 +303,22 @@ class AzureFoundryClient:
         effective_max_tokens = max_tokens or int(
             os.getenv("APTP_DEFAULT_MAX_OUTPUT_TOKENS", "16384")
         )
-        effective_temperature = (
-            temperature
-            if temperature is not None
-            else float(os.getenv("AZURE_OPENAI_TEMPERATURE", "0.2"))
-        )
+        env_temperature = (os.getenv("AZURE_OPENAI_TEMPERATURE") or "").strip()
+        effective_temperature: Optional[float]
+        if temperature is not None:
+            effective_temperature = temperature
+        elif env_temperature:
+            effective_temperature = float(env_temperature)
+        elif _deployment_omits_temperature(effective_deployment):
+            effective_temperature = None
+        else:
+            effective_temperature = 0.2
         ttl_seconds = cache_ttl_seconds or self._cache_ttl_seconds()
         resolved_cache_key = cache_key or self._build_cache_key(
             prompt=prompt,
             system_prompt=system_content,
             max_tokens=effective_max_tokens,
-            temperature=effective_temperature,
+            temperature=effective_temperature if effective_temperature is not None else -1.0,
             response_format_json=response_format_json,
             metadata=metadata,
             deployment=effective_deployment,
@@ -351,9 +378,10 @@ class AzureFoundryClient:
                         {"role": "system", "content": system_content},
                         {"role": "user", "content": prompt},
                     ],
-                    "temperature": effective_temperature,
                     "max_tokens": tokens,
                 }
+                if effective_temperature is not None:
+                    request_kwargs["temperature"] = effective_temperature
                 if use_json:
                     request_kwargs["response_format"] = {"type": "json_object"}
                 logger.info(

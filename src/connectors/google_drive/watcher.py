@@ -5,6 +5,7 @@ import os
 from typing import Optional
 
 from src.connectors.google_drive.system_root import get_system_root_folder_id, sync_system_root
+from src.runtime_policy import drive_enabled
 
 logger = logging.getLogger("drive_watcher")
 
@@ -49,6 +50,10 @@ async def _poll_loop(poll_interval: int) -> None:
 def start_drive_watcher() -> Optional[asyncio.Task]:
     """Poll GOOGLE_DRIVE_SYSTEM_ROOT_FOLDER_ID (APTP) when APTP_DRIVE_WATCH_ENABLED=true."""
     global _watcher_task
+
+    if not drive_enabled():
+        logger.info("Drive watcher disabled by APTP_DRIVE_ENABLED=false")
+        return None
 
     enabled = os.getenv("APTP_DRIVE_WATCH_ENABLED", "false").lower() in {"1", "true", "yes"}
     if not enabled:

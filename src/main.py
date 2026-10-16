@@ -16,7 +16,7 @@ from src.memory.enhanced_memory import get_memory
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     try:
-        from src.runtime_policy import validate_startup_configuration
+        from src.runtime_policy import drive_enabled, validate_startup_configuration
 
         app.state.runtime_policy = await validate_startup_configuration()
         from src.memory.enhanced_memory import get_memory
@@ -36,7 +36,7 @@ async def lifespan(app: FastAPI):
             await init_knowledge_db()
         except Exception:
             pass
-    if os.getenv("APTP_ALLOW_MOCKS", "false").lower() not in {"1", "true", "yes"}:
+    if drive_enabled() and os.getenv("APTP_ALLOW_MOCKS", "false").lower() not in {"1", "true", "yes"}:
         try:
             from src.connectors.google_drive.connector import get_google_drive_connector
 
@@ -46,6 +46,8 @@ async def lifespan(app: FastAPI):
                 app.state.drive = "ready"
         except Exception as exc:
             logger.warning("Drive pre-warm skipped: %s", exc)
+    else:
+        app.state.drive = "disabled"
     start_drive_watcher()
     yield
     await stop_drive_watcher()

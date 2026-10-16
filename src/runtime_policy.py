@@ -22,6 +22,10 @@ def allow_mocks() -> bool:
     return os.getenv("APTP_ALLOW_MOCKS", "false").lower() in {"1", "true", "yes"}
 
 
+def drive_enabled() -> bool:
+    return os.getenv("APTP_DRIVE_ENABLED", "true").lower() not in {"0", "false", "no"}
+
+
 def require_redis() -> bool:
     return os.getenv("APTP_REQUIRE_REDIS", "false").lower() in {"1", "true", "yes"}
 
@@ -58,7 +62,7 @@ def data_provenance() -> Dict[str, str]:
     return {
         "policy": "mock" if allow_mocks() else "real_only",
         "llm": "mock" if use_mock_llm() else "azure_openai",
-        "drive": "mock" if allow_mocks() else "google_drive",
+        "drive": "disabled" if not drive_enabled() else ("mock" if allow_mocks() else "google_drive"),
         "execution": "mock" if use_mock_playwright_execution() else "playwright_live",
         "embeddings": "hash_local" if use_mock_llm() else "azure_openai",
     }
@@ -84,6 +88,8 @@ def ensure_llm_configured() -> None:
 
 
 def ensure_drive_configured(is_configured: bool) -> None:
+    if not drive_enabled():
+        return
     if allow_mocks() or is_configured:
         return
     raise RealDataRequiredError(
@@ -110,9 +116,9 @@ def ensure_embeddings_configured() -> None:
         return
     deployment = (os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT") or "").strip()
     if not deployment:
-        raise RealDataRequiredError(
-            "AZURE_OPENAI_EMBEDDING_DEPLOYMENT is required when using real LLM mode "
-            "(e.g. text-embedding-3-small)."
+        logger.warning(
+            "AZURE_OPENAI_EMBEDDING_DEPLOYMENT is not configured; using local hash embeddings. "
+            "Semantic retrieval quality will be lower."
         )
 
 
@@ -183,7 +189,8 @@ async def validate_startup_configuration() -> Dict[str, Any]:
     )
 
     connector = get_google_drive_connector()
-    ensure_drive_configured(connector.is_configured)
+    if drive_enabled():
+        ensure_drive_configured(connector.is_configured)
 
     probe_errors: list[str] = []
     probes: list[tuple[str, str]] = [("default", default_deployment())]
@@ -210,13 +217,15 @@ async def validate_startup_configuration() -> Dict[str, Any]:
                 f"embedding: deployment '{emb_dep}' failed ({exc}). "
                 "Deploy text-embedding-3-small (or your embedding model) in Foundry with that exact name."
             )
+    else:
+        logger.warning("Startup embedding probe skipped; local hash embeddings active")
 
     if probe_errors:
         raise RealDataRequiredError(
             "Azure deployment validation failed:\n- " + "\n- ".join(probe_errors)
         )
 
-    logger.info("Real-only runtime policy validated: %s", prov)
+    logger.info("Runtime policy validated: %s", prov)
     _startup_validation_cache = {"ok": True, "provenance": prov, "deployments_probed": [p[0] for p in probes]}
     _startup_validation_cached_at = time.time()
     return _startup_validation_cache

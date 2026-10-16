@@ -3,12 +3,16 @@
 ARG PLAYWRIGHT_VERSION=1.61.1
 FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-jammy
 
+ARG PIP_INDEX_URL=https://pypi.org/simple
+ARG PIP_TRUSTED_HOSTS=
+
 WORKDIR /app
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONPATH=/app \
     PIP_NO_CACHE_DIR=1 \
+  PIP_INDEX_URL=${PIP_INDEX_URL} \
     PLAYWRIGHT_BROWSERS_PATH=/ms-playwright \
     APTP_PLAYWRIGHT_VERSION=${PLAYWRIGHT_VERSION} \
     APTP_SKIP_PLAYWRIGHT_INSTALL=true \
@@ -25,7 +29,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN set -eux; \
+    PIP_TRUSTED_HOST_ARGS=""; \
+    if [ -n "$PIP_TRUSTED_HOSTS" ]; then \
+      for host in $PIP_TRUSTED_HOSTS; do \
+        PIP_TRUSTED_HOST_ARGS="$PIP_TRUSTED_HOST_ARGS --trusted-host $host"; \
+      done; \
+    fi; \
+    pip install --no-cache-dir --index-url "$PIP_INDEX_URL" $PIP_TRUSTED_HOST_ARGS -r requirements.txt
 
 COPY alembic.ini .
 COPY deployment/ deployment/

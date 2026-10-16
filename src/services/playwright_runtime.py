@@ -13,8 +13,11 @@ from src.playwright_version import BROWSER_MISMATCH_MARKERS, PLAYWRIGHT_DOCKER_I
 
 _CHROMIUM_GLOB_PATTERNS = (
     "chromium-*/chrome-linux/chrome",
+    "chromium-*/chrome-linux64/chrome",
     "chromium-*/chrome-linux/headless_shell",
+    "chromium-*/chrome-linux64/headless_shell",
     "chromium_headless_shell-*/chrome-linux/headless_shell",
+    "chromium_headless_shell-*/chrome-linux64/headless_shell",
 )
 
 

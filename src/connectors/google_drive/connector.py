@@ -27,7 +27,7 @@ from src.intake.file_types import (
     guess_mime_from_filename,
     is_intake_file,
 )
-from src.runtime_policy import allow_mocks, ensure_drive_configured
+from src.runtime_policy import allow_mocks, drive_enabled, ensure_drive_configured
 
 # Back-compat alias for modules that import EXPORT_MIME from the connector
 EXPORT_MIME = GOOGLE_EXPORT_MIME
@@ -755,15 +755,19 @@ def drive_status() -> Dict[str, Any]:
         or (os.getenv("GOOGLE_DRIVE_DEFAULT_FOLDER_ID") or "").strip()
         or None
     )
-    mode = "real" if connector.is_configured else ("mock" if allow_mocks() else "unconfigured")
+    if not drive_enabled():
+        mode = "disabled"
+    else:
+        mode = "real" if connector.is_configured else ("mock" if allow_mocks() else "unconfigured")
     return {
         "configured": bool(creds),
         "mode": mode,
+        "enabled": drive_enabled(),
         "real_only": not allow_mocks(),
         "system_root_folder_id": system_root,
         "system_root_name": os.getenv("GOOGLE_DRIVE_SYSTEM_ROOT_NAME", "APTP"),
         "impersonate_user": (os.getenv("GOOGLE_DRIVE_IMPERSONATE_USER") or "").strip() or None,
-        "watch_enabled": os.getenv("APTP_DRIVE_WATCH_ENABLED", "false").lower() in {"1", "true", "yes"},
+        "watch_enabled": drive_enabled() and os.getenv("APTP_DRIVE_WATCH_ENABLED", "false").lower() in {"1", "true", "yes"},
         "registry_enabled": os.getenv("APTP_DISABLE_INTAKE_DB", "false").lower()
         not in {"1", "true", "yes"},
         "mock_system_root": str(resolve_mock_system_root()),

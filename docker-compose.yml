@@ -39,6 +39,8 @@ services:
       dockerfile: Dockerfile
       args:
         PLAYWRIGHT_VERSION: "1.61.1"
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+        PIP_TRUSTED_HOSTS: ${PIP_TRUSTED_HOSTS:-}
     ports:
       - "${APTP_API_PORT:-8000}:8000"
     env_file:
@@ -62,6 +64,7 @@ services:
       APTP_EMBEDDING_DIMENSIONS: "1536"
     volumes:
       - ./generated-test-projects:/app/generated-test-projects
+      - ./local-intake:/app/local-intake
     depends_on:
       postgres:
         condition: service_healthy

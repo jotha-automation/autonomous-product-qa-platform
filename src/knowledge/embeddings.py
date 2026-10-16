@@ -40,7 +40,7 @@ def _hash_embedding(text: str, dim: int) -> List[float]:
 
 
 async def embed_text(text: str, *, dimensions: Optional[int] = None) -> List[float]:
-    from src.runtime_policy import RealDataRequiredError, use_mock_llm
+    from src.runtime_policy import use_mock_llm
 
     dim = dimensions or embedding_dimensions()
     cleaned = (text or "").strip()
@@ -50,21 +50,21 @@ async def embed_text(text: str, *, dimensions: Optional[int] = None) -> List[flo
     deployment = (os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT") or "").strip()
 
     if not use_mock_llm():
-        if not deployment:
-            raise RealDataRequiredError(
-                "AZURE_OPENAI_EMBEDDING_DEPLOYMENT is required (e.g. text-embedding-3-small)."
+        if deployment:
+            vec = await _azure_embed(cleaned, deployment)
+            if len(vec) == dim:
+                return vec
+            if len(vec) == AZURE_EMBEDDING_DIM and dim == AZURE_EMBEDDING_DIM:
+                return vec
+            logger.warning(
+                "Azure embedding dim=%d expected=%d; check APTP_EMBEDDING_DIMENSIONS and DB migration",
+                len(vec),
+                dim,
             )
-        vec = await _azure_embed(cleaned, deployment)
-        if len(vec) == dim:
-            return vec
-        if len(vec) == AZURE_EMBEDDING_DIM and dim == AZURE_EMBEDDING_DIM:
-            return vec
-        logger.warning(
-            "Azure embedding dim=%d expected=%d; check APTP_EMBEDDING_DIMENSIONS and DB migration",
-            len(vec),
-            dim,
-        )
-        return vec[:dim] if len(vec) > dim else vec + [0.0] * (dim - len(vec))
+            return vec[:dim] if len(vec) > dim else vec + [0.0] * (dim - len(vec))
+
+        logger.warning("Embedding deployment missing; using local hash embeddings")
+        return _hash_embedding(cleaned, dim)
 
     if deployment:
         try:

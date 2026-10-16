@@ -11,6 +11,7 @@ from src.connectors.google_drive.system_root import (
     list_project_folders_under_system_root,
     sync_system_root,
 )
+from src.runtime_policy import drive_enabled
 from src.services.intake_registry import get_intake_registry
 
 router = APIRouter(prefix="/intake", tags=["intake"])
@@ -19,6 +20,14 @@ router = APIRouter(prefix="/intake", tags=["intake"])
 @router.get("/system", dependencies=[Depends(verify_api_key)])
 async def get_system_root():
     """Configured APTP system root folder."""
+    if not drive_enabled():
+        return {
+            "system_root_name": get_system_root_name(),
+            "system_root_folder_id": None,
+            "stored": None,
+            "drive_enabled": False,
+        }
+
     registry = get_intake_registry()
     stored = await registry.get_system_root()
     try:
@@ -38,6 +47,9 @@ async def list_projects():
     registry = get_intake_registry()
     indexed = await registry.list_project_folders()
     live = []
+    if not drive_enabled():
+        return {"indexed": indexed, "live_drive": live, "drive_enabled": False}
+
     try:
         live_folders = await list_project_folders_under_system_root()
         live = [
@@ -58,6 +70,9 @@ async def list_projects():
 @router.post("/sync-system", dependencies=[Depends(verify_api_key)])
 async def sync_system(payload: dict | None = None):
     """Scan APTP/, index all project subfolders, optionally run pipeline on changes."""
+    if not drive_enabled():
+        raise HTTPException(400, "Google Drive is disabled. Use /intake/discover with local_path.")
+
     body = payload or {}
     try:
         result = await sync_system_root(
@@ -127,6 +142,8 @@ async def discover_folder(payload: dict):
     sync_all = payload.get("sync_system_root", False)
 
     if sync_all or payload.get("use_system_root"):
+        if not drive_enabled():
+            raise HTTPException(400, "Google Drive is disabled. Use local_path instead of system root sync.")
         result = await sync_system_root(trigger_run=False, force_reprocess=force)
         return {
             "mode": "system_root",
@@ -151,6 +168,8 @@ async def discover_folder(payload: dict):
         sync = await sync_local_intake(project_id, Path(local_path), force_reprocess=force)
         discovery = sync.discovery
     elif folder_id:
+        if not drive_enabled():
+            raise HTTPException(400, "Google Drive is disabled. Use local_path instead of drive_folder_id.")
         sync = await sync_drive_intake(project_id, folder_id, force_reprocess=force)
         discovery = sync.discovery
     else:
